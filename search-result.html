@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">  
+    <script src="https://kit.fontawesome.com/0bbf47f20a.js" crossorigin="anonymous"></script>
+    <title>Flight Search Result</title>
+    <style media="screen">
+        @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+        
+        @import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
+        /*
+        font-family: 'Abel', sans-serif;
+        */
+
+        @import url('https://fonts.googleapis.com/css?family=Fjalla+One&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Belleza&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Cabin&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Hammersmith+One&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Ruda&display=swap');   
+        @import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+
+        body{
+            margin: 0;
+        }
+        header{
+            width: 100%;
+            height: 100px;
+            position: fixed;
+            background-color: #fff;
+            z-index: 1000;
+            overflow: visible;
+        }
+        nav{
+            line-height: 110px;
+            text-align: right;
+        }
+        nav a{
+            padding: 15px;
+            text-decoration: none;
+            font-family: 'Ruda', sans-serif;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            color: #444;
+            border-radius: 10px;
+            transition: .4s;
+            letter-spacing: .1em;
+        }
+        nav a.active{
+            background: rgb(25,132,199);
+            background: linear-gradient(90deg, rgba(25,132,199,1) 12%, rgba(0,104,162,0.528234649122807) 100%);
+            color: #fff;
+            text-shadow: 0px 5px 6px RGBA(33, 37, 43, .3);
+        }
+        nav a:hover{
+            text-decoration: none;
+            background: rgb(25,132,199);
+            background: linear-gradient(90deg, rgba(25,132,199,1) 12%, rgba(0,104,162,0.528234649122807) 100%);
+            color: #fff;
+            text-shadow: 0px 5px 6px RGBA(33, 37, 43, .3);
+        }
+        button{
+            cursor: pointer;
+            outline: none;
+            text-transform: uppercase;
+        }
+        #landing{
+            width: 100%;
+            height: 100vh;
+            background-image: url(./images/island.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        #landing .overlay{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.6);
+            z-index: 0;
+        }
+        nav{
+            position: relative;
+            right: 40px;
+        }
+        nav i{
+            font-size: 1.6em;
+            position: relative;
+            bottom: -3px;
+            cursor: pointer;
+            color: #444;
+            margin-left: 30px;
+        }
+        .logo{
+            position: absolute;
+            left: 40px;
+            height: 100%;
+            width: 200px;
+            background-image: url(images/crown.jpg);
+            background-position: left;
+            background-size: 130px;
+            background-repeat: no-repeat;
+            text-align: center;
+            line-height: 100px;
+        }
+        .center{
+            text-align: center;
+            position: relative;
+            top: 55%;
+            transform: translateY(-50%);
+        }
+        h1{   
+            color: #444;
+            font-family: 'Hammersmith One', sans-serif;
+            text-transform: uppercase;
+            font-size: 1em;
+        }
+        .round-button i{
+            font-size: 1.1em;
+            color: #fff;
+            text-shadow: 0px 5px 6px RGBA(33, 37, 43, .3);
+            cursor: pointer;
+        }
+        header.scrolled {
+            width: 90%;
+            height: 100px;
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            border-radius: 10px;
+            background-color: RGBA(255,255,255,1);
+            -webkit-box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.2);
+            -moz-box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.2);
+            box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.2);
+            transition: opacity .4s;
+        }
+        header.scrolled .account-icon-box{
+            right: 10px;
+        }
+        .account-icon-box{
+            position: absolute;
+            top: 100px;
+            right: 0;
+            width: 300px;
+            transition: .3s;
+            opacity: 0;
+            visibility: hidden;
+            font-family: 'Ruda', sans-serif;
+            font-size: 1.1em;
+        }
+        .show{
+            opacity: 1;
+            visibility: visible;
+        }
+        .l-button-wrap{
+            padding: 0;
+        }
+        .l-button-wrap button{
+            width: 100%;
+            border: none;
+            padding:10px;
+            border-top: 1px solid #999;
+            border-bottom: 1px solid #999;
+            border-right: 1px solid #999;
+            background-color: #fff;
+            transition: .4s;
+        }
+        .r-button-wrap button{
+            width: 100%;
+            border: none;
+            padding:10px;
+            border-top: 1px solid #999;
+            border-bottom: 1px solid #999;
+            background-color: #fff;
+            transition: .4s;
+        }
+        .r-button-wrap{
+            padding: 0;
+        }
+        .button-wrap{
+            padding: 0;
+        }
+        .button-wrap button{
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #999;
+            padding:10px;
+            text-align: left;
+            background-color: #fff;
+            transition: .4s;
+        }
+        button i{
+            padding: 10px;
+        }
+        button:hover{
+            text-decoration: none;
+            background: linear-gradient(90deg, rgba(25,132,199,1) 0%, rgba(157,220,255,0.7738486842105263) 100%);
+            color: #fff;
+            text-shadow: 0px 5px 6px RGBA(33, 37, 43, .3);
+        }
+        #fail-err{display: none;}
+        #email-err{display: none;}
+        #pass-err{display: none;}
+        #account-btn{display: none;border-top: 1px solid #999;}
+        #purchases-btn{display: none;}
+        #signout-btn{display: none;padding: 0;}
+        #signout-btn{display: none;padding: 0;}
+        #signout-btn button{
+            width: 100%;
+            border: none;
+            padding:10px;
+            border-top: none;
+            border-bottom: 1px solid #999;
+            border-right: none;
+            background-color: #fff;
+            transition: .4s;
+        }
+        #user-info{
+            display: none;
+            padding: 0;
+        }
+        #user-info button{
+            pointer-events: none;
+            border-top: 1px solid #999;
+            border-bottom: none;
+            width: 100%;
+            padding:10px;
+            border-right: none;
+            background-color: #fff;
+            transition: .4s;
+            text-align: center;
+            padding: 10px;
+        }
+        #user-info #user-email{
+            color: lightslategrey;
+            font-size: .7em;
+            text-transform: lowercase;
+        }
+        #footer{
+/*            position: absolute;*/
+            width: 100%;
+            bottom: 0;
+            text-align: center;
+            padding: 30px;
+/*            background: RGBA(255,255,255,.8);*/
+        }
+        #footer a{
+            padding: 10px;
+            color: inherit;
+            text-decoration: none;
+            font-family: 'Ruda', sans-serif;
+            text-transform: uppercase;
+        }
+        #footer i{
+            padding: 10px;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+        #footer h1, #footer p{
+            color: #888;
+            font-family: 'Abel', sans-serif;
+        }
+        * {box-sizing: border-box;}
+
+        .support-icon{
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            z-index: 100;
+            opacity: .5;
+            transition: .3s;
+        }
+        .support-icon:hover{
+            opacity: 1;
+        }
+        
+                
+        .login-form{
+            width: 700px;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            z-index: 3;
+            padding: 30px;
+            display: none;
+            background-color: #fff;
+            border-radius: 20px;
+        }
+        .login-form form{
+            padding: 30px;
+            text-align: center
+        }
+        .login-form form i{
+            position: absolute;
+            right: 20px;
+            top: 25px;
+            font-size: 1.6em;
+            cursor: pointer;
+            transition: .3s;
+            color: darkgrey;
+        }
+        .login-form h1{
+            font-size: 1.2em;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .input-container {
+            width: 80%;
+            border: 5px solid transparent;
+            margin: 0 auto;
+        }
+        .login-form input[type="text"],[type="password"]{
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .login-form input[type="button"]{
+            width: 100%;
+            border: none;
+            background: linear-gradient(90deg, rgba(25,132,199,1) 0%, rgba(157,220,255,0.7738486842105263) 100%);
+            padding: 10px;
+            border-radius: 7px;
+            color: #fff;
+            outline: none;
+            cursor: pointer;
+            font-family: 'Fjalla One', sans-serif;
+            text-transform: uppercase;
+        }
+        .login-form input[type="checkbox"]
+        {
+            vertical-align:text-top;
+        }
+        .login-form label{
+            margin-top: 10px;
+        }
+        .pop-up-bg{
+            position: fixed;
+            background: RGBA(0,0,0,.5);
+            width: 100%;
+            height: 100vh;
+            z-index: 1;
+            display: none;
+        }
+        
+        .register-wrap form{
+            z-index: 10;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0px 16px 60px -13px rgba(0,0,0,0);
+            border-radius: 0;
+            background-color: transparent;
+            margin-top: -10px;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        .register-wrap i{
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 1.6em;
+            cursor: pointer;
+            transition: .3s;
+            color: darkgrey;
+            z-index: 9;
+        }
+        .register-container h1{
+            font-size: 1.2em;
+            text-align: center;
+            margin-bottom: 15px;
+            z-index: 1;
+        }
+        .register-wrap h1{
+            margin-bottom: 20px;
+        }
+        .register-wrap input[type="text"],[type="password"]{
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .register-wrap input[type="button"]{
+            width: 100%;
+            border: none;
+            background: linear-gradient(90deg, rgba(25,132,199,1) 0%, rgba(157,220,255,0.7738486842105263) 100%);
+            padding: 10px;
+            border-radius: 7px;
+            color: #fff;
+            outline: none;
+            cursor: pointer;
+            font-family: 'Fjalla One', sans-serif;
+            text-transform: uppercase;
+        }
+        .register-wrap input[type="checkbox"]
+        {
+            vertical-align:text-top;
+        }
+        .register-wrap label{
+            margin-top: 10px;
+        }
+        .register-container{
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            background-color: RGBA(255,255,255,.95);
+            z-index: 2;
+            border-radius: 20px;
+            -webkit-box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.2);
+            -moz-box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.2);
+            box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.2);
+            display: none;
+        }
+        .guidelines, .register-wrap{
+            padding: 30px;
+            width: 100%;
+        }
+        .guidelines ul{
+            margin: 0;
+        }
+        .guidelines ul li{
+            list-style: none;
+            font-size: 1.1em;
+        }
+        ul li.valid:before {
+            content: '✓ ';
+            font-style: normal;
+        }
+        .valid{
+            color: #11D335;
+        }
+        p#message{
+            color: #FC5B5D;
+        }
+        .center-inside{
+            position: relative;
+            top: 40%;
+            transform: translateY(-50%);
+        }
+        label::selection,label a::selection { background: transparent; }
+        .animate{
+            -webkit-animation: vibrate-1 0.3s linear 2 both;
+            animation: vibrate-1 0.3s linear 2 both;
+        }
+        @-webkit-keyframes vibrate-1 {
+          0% {
+            -webkit-transform: translate(0);
+                    transform: translate(0);
+          }
+          20% {
+            -webkit-transform: translate(-2px, 2px);
+                    transform: translate(-2px, 2px);
+          }
+          40% {
+            -webkit-transform: translate(-2px, -2px);
+                    transform: translate(-2px, -2px);
+          }
+          60% {
+            -webkit-transform: translate(2px, 2px);
+                    transform: translate(2px, 2px);
+          }
+          80% {
+            -webkit-transform: translate(2px, -2px);
+                    transform: translate(2px, -2px);
+          }
+          100% {
+            -webkit-transform: translate(0);
+                    transform: translate(0);
+          }
+        }
+        @keyframes vibrate-1 {
+              0% {
+                -webkit-transform: translate(0);
+                        transform: translate(0);
+              }
+              20% {
+                -webkit-transform: translate(-2px, 2px);
+                        transform: translate(-2px, 2px);
+              }
+              40% {
+                -webkit-transform: translate(-2px, -2px);
+                        transform: translate(-2px, -2px);
+              }
+              60% {
+                -webkit-transform: translate(2px, 2px);
+                        transform: translate(2px, 2px);
+              }
+              80% {
+                -webkit-transform: translate(2px, -2px);
+                        transform: translate(2px, -2px);
+              }
+              100% {
+                -webkit-transform: translate(0);
+                        transform: translate(0);
+              }
+        }
+        
+        .success-popup{
+            width: 500px;
+            height: 300px;
+            background-color: RGBA(255,255,255,.95);
+            border-radius: 20px;
+            padding: 30px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            z-index: 5;
+            -webkit-box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.2);
+            -moz-box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.2);
+            box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.2);
+            display: none;
+        }
+        .success-popup i{
+            position: absolute;
+            right: 20px;
+            top: 25px;
+            font-size: 1.6em;
+            cursor: pointer;
+            transition: .3s;
+            color: darkgrey;
+            z-index: 9;
+        }
+        .success-popup h1{
+            font-size: 1.2em;
+            text-align: center;
+            z-index: 1;
+            color: #11D335;
+            text-shadow: 0px 5px 6px RGBA(33, 37, 43, .1);
+        }
+        .success-popup p{
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.3em;
+        }
+        .success-popup img{
+            pointer-events: none; 
+            position: absolute;
+            left: 54%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+ 
+        #page-content{
+            width: 100%;
+            padding: 50px;
+            background: linear-gradient(90deg, rgba(25,132,199,1) 0%, rgba(157,220,255,0.7738486842105263) 100%);
+        }
+        .margin-fix{
+            margin-top: 100px;
+        }
+        .flight-result{
+            background: RGBA(255,255,255,.7);
+            padding-top: 30px;
+            padding-bottom: 30px;
+            -webkit-animation: scale-in-ver-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: scale-in-ver-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        }
+        body{
+            box-sizing: border-box;
+        }
+        .result1,.result2,.result3,.result4{
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            margin: 10px;
+            margin-left: 0px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            -webkit-box-shadow: 0px 16px 60px -13px rgba(0,0,0,.13);
+            -moz-box-shadow: 0px 16px 60px -13px rgba(0,0,0,.13);
+            box-shadow: 0px 16px 60px -13px rgba(0,0,0,.13);
+        }
+        .result1{
+            -webkit-animation: fade-in-left 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) .5s both;
+	        animation: fade-in-left 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) .5s both;
+        }
+        .result2{
+            -webkit-animation: fade-in-left 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) .9s both;
+	        animation: fade-in-left 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) .9s noth; 
+        }
+        .result3{
+            -webkit-animation: fade-in-left 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) 1.3s both;
+	        animation: fade-in-left 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) 1.3s both;
+        }
+        .result4{
+            -webkit-animation: fade-in-left 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) 1.7s both;
+	        animation: fade-in-left 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) 1.7s both;
+        }
+        #flight-name,#trip-summary{
+            font-family: 'Ruda', sans-serif;
+        }
+        #flight-name img{
+            position: absolute;
+            right: 0;
+            top: 8px;
+        }
+        #flight-num{
+            position: absolute;
+            right: 0;
+            font-family: 'Roboto Mono', monospace;
+            text-transform: uppercase;
+            color: grey;
+        }
+        .flight-col{
+            padding: 0px;
+        }
+        .trip-col{
+            text-align: center;
+            line-height: 50px;
+        }
+        .trip-col p{color: grey;}
+        .price-col{
+            text-align: center;
+            line-height: 50px;
+        }
+        .price-col p{color: #2ED383;font-family: 'Bebas Neue', cursive;font-size: 1.3em;}
+        .button-col{
+            text-align: center;
+            padding: 0;
+        }
+        .button-col button{
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(25,132,199,1) 0%, rgba(157,220,255,0.7738486842105263) 100%);
+            padding: 10px;
+            border-radius: 7px;
+            color: #fff;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-family: 'Fjalla One', sans-serif;
+            text-transform: uppercase;
+            text-shadow: 0px 5px 6px RGBA(33, 37, 43, .3);
+        }
+        .flight-result p{
+            margin: 0;
+        }
+        @-webkit-keyframes scale-in-ver-center {
+          0% {
+            -webkit-transform: scaleY(0);
+                    transform: scaleY(0);
+            opacity: 1;
+          }
+          100% {
+            -webkit-transform: scaleY(1);
+                    transform: scaleY(1);
+            opacity: 1;
+          }
+        }
+        @keyframes scale-in-ver-center {
+          0% {
+            -webkit-transform: scaleY(0);
+                    transform: scaleY(0);
+            opacity: 1;
+          }
+          100% {
+            -webkit-transform: scaleY(1);
+                    transform: scaleY(1);
+            opacity: 1;
+          }
+        }
+
+        @-webkit-keyframes fade-in-left {
+          0% {
+            -webkit-transform: translateX(-80%);
+                    transform: translateX(-80%);
+            opacity: 0;
+          }
+          100% {
+            -webkit-transform: translateX(-50%);
+                    transform: translateX(-50%);
+            opacity: 1;
+          }
+        }
+        @keyframes fade-in-left {
+          0% {
+            -webkit-transform: translateX(-80%);
+                    transform: translateX(-80%);
+            opacity: 0;
+          }
+          100% {
+            -webkit-transform: translateX(-50%);
+                    transform: translateX(-50%);
+            opacity: 1;
+          }
+        }
+
+        .clouds{
+            position: absolute;
+            width: 100%;
+            left: 0;
+            height: 100%;
+            left: 0;
+            background-image: url(images/clouds.png);
+            background-size: 1000px;
+            background-repeat: repeat-x;
+            background-position: center;
+            -webkit-animation: blink-1 5s infinite both;
+	        animation: blink-1 8s infinite both;
+        }
+        @-webkit-keyframes blink-1 {
+          0%,
+          50%,
+          100% {
+            opacity: 1;
+          }
+          25%,
+          75% {
+            opacity: .35;
+          }
+        }
+        @keyframes blink-1 {
+          0%,
+          50%,
+          100% {
+            opacity: 1;
+          }
+          25%,
+          75% {
+            opacity: .35;
+          }
+        }
+        #login-msg{
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            background-color: #fff;
+            display: none;
+            z-index: 2;
+        }
+        #login-msg h1{
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.5em;
+            color: dimgrey;
+            letter-spacing: .1em;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .flight-time{
+            position: absolute;
+            text-align: right;
+            left: 0;
+            bottom: 0;
+            background-color: #f1f1f1;
+            width: 100%;
+/*            padding-left: 30px;*/
+            padding-right: 30px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            font-family: 'Ruda', sans-serif;
+        }
+        .facilities{
+            position: absolute;
+            left: 25px;
+        }
+        .facilities i{
+            margin: 5px;
+            color: grey;
+        }
+        .from-dest{
+            margin-right: 10px;
+        }
+        .to-dest{
+            margin-left: 10px;
+        }
+    </style>
+  </head>
+  <body onload="availableFeatures();userLoginCheck();">
+    
+    <div class="success-popup" id="success-popup">
+        <h1>Registration successful!<i class="far fa-times-circle close" onclick="refreshPage()"></i></h1>  
+        <img src="images/tick.png" width="150px">
+        <p>Please login to book flights</p>
+    </div>  
+    <div class="pop-up-bg" id="bg-overlay"></div>
+    <div class="support-icon">
+<!--      <i class="fas fa-headset"></i>-->
+        <img src="images/support.png" width="100%;">
+    </div> 
+      
+    <div class="container register-container" id="register-box">
+        <div class="row">
+            <div class="col-md guidelines">
+                
+                <h1>Passwords are case-sensitive and must contain:</h1>
+                <div class="center-inside">
+                <ul>
+                    <li id="char">At least 8 characters</li>
+                    <li id="num">At least 1 number</li>
+                    <li id="low">At least 1 lowercase letter</li>
+                    <li id="upp">At least 1 uppercase letter</li>
+                    <p id="message"></p>
+                </ul>
+                </div>
+                
+            </div>
+            <div class="col-md register-wrap">
+                <h1>Register <span class="close"><i class="fas fa-times-circle"></i></span></h1>
+                <form id="register-form">
+                    <div class="input-container">
+                        <input type="text" placeholder="First Name" id="fname" tabindex="1" autofocus>
+                    </div>
+                    <div class="input-container" >
+                        <input type="text" placeholder="Last Name" id="lname" tabindex="2" >
+                    </div>
+                    <div class="input-container">
+                        <input type="text" placeholder="Email Address" id="email" onfocus="" tabindex="3" >
+                    </div>
+                    <div class="input-container">
+                        <input type="password" class="password" placeholder="Password" id="password"  tabindex="4" oninput="checkPassword()" >
+                    </div>
+                    <div class="input-container">
+                        <input type="password" placeholder="Confirm Password" id="confirm-password" tabindex="5" disabled>
+                    </div>
+                    <label><input type="checkbox"> I agree to the <a href="#">Terms and Conditions</a></label>
+                    <div class="input-container" >
+                        <input type="button" class="button" value="Sign Up" onclick="passwordMatch();" id="signup">
+                    </div>
+                    <br><a href="#" class="to-login">Have an Account? Log In</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="login-form" id="login-box">
+        
+        <form>
+
+            <h1>Sign In With Email<i class="far fa-times-circle close"></i></h1>
+
+            <div class="input-container">
+                <input type="text" placeholder="Email Address" id="login-email" onfocus="" tabindex="1" >
+                <p id="email-err" style="text-align:left;margin:0;padding-left: 10px;color: orangered;">Type an email here*</p>
+            </div>
+            <div class="input-container">
+                <input type="password" class="password" placeholder="Password" id="login-password"  tabindex="2">
+                <p id="pass-err" style="text-align:left;margin:0;padding-left: 10px;color: orangered;">Enter a correct password*</p>
+            </div>
+            <div class="input-container" >
+                <input type="button" class="button" value="Login" id="login">
+            </div>
+            <p id="fail-err" style="text-align:center;margin:0;color: orangered;">Login failed! Email or password is incorrect. Please try again.</p>
+            <label>Forgot Password?</label><br>
+            <br><a href="#" class="to-register">Don't have an account? Create new account</a>
+
+        </form>
+    </div>    
+      
+    <div id="login-msg">
+        <h1>You must be logged in to view this page</h1>  
+    </div>
+    <div class="support-icon">
+<!--      <i class="fas fa-headset"></i>-->
+        <img src="images/support.png" width="100%;">
+    </div> 
+      
+      
+    <header>
+    <div class="logo"></div> 
+    <nav> 
+        <a href="index.html">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+        <i class="fas fa-user-circle"></i> 
+      </nav>
+    <div class="account-icon-box">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 l-button-wrap" id="signup-btn"><button>Sign Up</button></div>
+                    <div class="col-12 r-button-wrap" id="signin-btn"><button>Sign In</button></div>
+                </div>
+                <div class="row">
+                    <div class="col-12" id="user-info"><button>
+                        <span id="user-name">Logged in as Anup</span><br>
+                        <span id="user-email"></span>
+                        </button>
+                        
+                    </div>
+                    <div class="col-12 button-wrap" id="account-btn"><button><i class="far fa-user"></i> My Account</button></div>
+                    <div class="col-12 button-wrap" id="purchases-btn"><button><i class="fas fa-money-check-alt"></i> My Purchases</button></div>
+                    <div class="col-12" id="signout-btn" style="text-align: center"><button onclick="logoutUser();">Sign Out</button></div>
+                </div>
+            </div>
+        </div>
+    </header>
+      
+    <section id="page-content">
+        <div class="margin-fix">
+            <div class="container flight-result">
+                <div class="clouds"></div>
+                <div class="row">
+                    <div class="col-10 result1">
+                        <div class="row"><div class="col-lg flight-col"><p id="flight-name">Delta Airlines <img src="images/delta.png" width="70px"><br>Flight : <span id="flight-num">Dal1001</span></p></div>
+                                <div class="col-lg trip-col"><p id="trip-summary"><span class="from-dest"></span> <i class="fas fa-long-arrow-alt-right"></i> <span class="to-dest"></span></p></div>
+                                <div class="col-lg-2 price-col"><p id="price">$332</p></div>
+                                <div class="col-lg button-col"><button onclick="ticketDetails('Delta','Dal1001',332,'10:00AM','12:45PM')">Select</button></div>
+                        </div>
+                        <div class="flight-time"><span class="facilities"><i class="fas fa-wifi"></i> <i class="fas fa-plug"></i></span> Departure - <span id="departure-time">10 : 00 AM</span> | Arrival - <span id="arrival-time">12 : 45 PM</span></div>
+                    </div>
+                    <div class="col-10 result2">
+                        <div class="row">
+                                <div class="col-lg flight-col"><p id="flight-name">American Airlines <img src="images/american.png" width="100px" style="margin-top: -3px;"><br>Flight : <span id="flight-num">Aal1002</span></p></div>
+                                <div class="col-lg trip-col"><p id="trip-summary"><span class="from-dest"></span> <i class="fas fa-long-arrow-alt-right"></i> <span class="to-dest"></span></p></div>
+                                <div class="col-lg-2 price-col"><p id="price">$352</p></div>
+                                <div class="col-lg button-col"><button onclick="ticketDetails('American Airlines','Aal1002',352,'11:15AM','1:40PM')">Select</button></div>
+                        </div>
+                        <div class="flight-time"><span class="facilities"><i class="fas fa-wifi"></i> <i class="fas fa-plug"></i></span> Departure - <span id="departure-time">11 : 15 AM</span> | Arrival - <span id="arrival-time">1 : 40 PM</span></div>
+                    </div>
+                    <div class="col-10 result3">
+                        <div class="row"><div class="col-lg flight-col"><p id="flight-name">United Airlines <img src="images/united.png" width="90px"><br>Flight : <span id="flight-num">Ual100</span></p></div>
+                                <div class="col-lg trip-col"><p id="trip-summary"><span class="from-dest"></span> <i class="fas fa-long-arrow-alt-right"></i> <span class="to-dest"></span></p></div>
+                                <div class="col-lg-2 price-col"><p id="price">$335</p></div>
+                                <div class="col-lg button-col"><button onclick="ticketDetails('United Airlines','Ual100',335,'6:30AM','8:00PM')">Select</button></div>
+                        </div>
+                        <div class="flight-time"><span class="facilities"><i class="fas fa-wifi"></i> <i class="fas fa-plug"></i></span> Departure - <span id="departure-time">6 : 30 PM</span> | Arrival - <span id="arrival-time">8 : 00 PM</span></div>
+                    </div>
+                    <div class="col-10 result4">
+                        <div class="row">
+                                <div class="col-lg flight-col"><p id="flight-name">JetBlue<img src="images/jetBlue.png" width="50px" style="margin-top: -3px;"><br>Flight : <span id="flight-num">Jb1004</span></p></div>
+                                <div class="col-lg trip-col"><p id="trip-summary"><span class="from-dest"></span> <i class="fas fa-long-arrow-alt-right"></i> <span class="to-dest"></span></p></div>
+                                <div class="col-lg-2 price-col"><p id="price">$395</p></div>
+                                <div class="col-lg button-col"><button onclick="ticketDetails('JetBlue','Jb1004',395,'7:00AM','9:00AM')">Select</button></div>
+                        </div>
+                        <div class="flight-time"><span class="facilities"><i class="fas fa-wifi"></i> <i class="fas fa-plug"></i></span> Departure - <span id="departure-time">7 : 00 AM</span> | Arrival - <span id="arrival-time">9 : 00 AM</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+      
+    <section id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <a href="#">Home</a>
+                    <a href="#">Booking</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Partners</a>
+                    <a href="#">Legal</a>
+                </div>
+                <br><br>
+                <div class="col-12">
+                    <p style="margin: 0;text-transform: uppercase; color: inherit;">Follow us:</p>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-skype"></i>
+                </div>
+                <br><br>
+                <div class="col-12">
+                    <p>Copyright &copy; 2019 | hakunamatata.com <br> Created by Anup &amp; Hugo</p>
+                </div>
+            </div>  
+        </div>
+      </section>
+      
+      
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="scripts/login.js"></script>
+    <script src="scripts/logout.js"></script>
+    <script src="scripts/login-services.js"></script>
+      
+    <script>
+//        var activeUser = JSON.parse(localStorage.getItem('activeUser'))
+        var from = activeUser[1].from
+        var to = activeUser[1].to
+        
+        $(document).ready(function(){
+            $('.from-dest').html(from)
+            $('.to-dest').html(to)
+        })
+        function ticketDetails(airlines,flightNum,price,dept,arv){
+            console.log(airlines)
+            console.log(flightNum)
+            console.log(price)
+            console.log(dept)
+            console.log(arv)
+        }  
+    </script>  
+    <!-- Hides search result if user is not logged in-->  
+    <script>
+        const loginExist = localStorage.getItem('activeUser')
+        var msg = document.getElementById("login-msg")
+        
+        function userLoginCheck(){
+            if(loginExist == null){
+               msg.style.display = "block"
+            } 
+        } 
+    </script>
+    <!--change input place holder onclick-->  
+    <script>
+        $('#depart, #return').on('focus click',  function(e){
+            $(this).attr("placeholder", "mm/dd/yyyy");
+        });    
+    </script>
+    <!--Change header style on scroll-->  
+    <script>
+        $(function () {
+          $(document).scroll(function () {
+            var $header = $("header");
+            $header.toggleClass('scrolled', $(this).scrollTop() > $header.height());
+          });
+        });
+    </script>
+    <!--Show/Hide account menu-->  
+    <script>
+        $('nav i').click(function() {
+            $('.account-icon-box').toggleClass("show");
+        });
+        
+        $('.account-icon-box button').click(function() {
+            $('.account-icon-box').toggleClass("show");
+        });
+        
+        $('.r-button-wrap').click(function() {
+            $('.login-form').show();
+            $('.pop-up-bg').show();
+        }); 
+        
+        $('.l-button-wrap').click(function() {
+            $('.register-container').show();
+            $('.pop-up-bg').show();
+        });
+        
+        $('.to-login').click(function() {
+            $('.login-form').show();
+            $('.register-container').hide();
+            $('.pop-up-bg').show();
+        });
+        
+        $('.to-register').click(function() {
+            $('.register-container').show();
+            $('.login-form').hide();
+            $('.pop-up-bg').show();
+        });
+        
+        $('.fa-times-circle').click(function() {
+            $('.login-form').hide();
+            $('.register-container').hide();
+            $('.pop-up-bg').hide();
+            $('form').trigger("reset");
+            $("#char").removeClass("valid");
+            $("#low").removeClass("valid");
+            $("#upp").removeClass("valid");
+            $("#num").removeClass("valid");
+            $("#message").removeClass("valid");
+            $('.success-popup').hide();
+        });
+        
+      </script>
+    <!--Password Validation-->
+    <script>
+            
+            function checkPassword() {
+                var password = document.getElementById("password").value;
+                var conf_password = document.getElementById("confirm-password").value;
+                
+                var char_long = document.getElementById("char");
+                var low = document.getElementById("low");
+                var up = document.getElementById("upp");
+                var num = document.getElementById("num");
+                var message = document.getElementById("message");
+
+                var numer = /[0-9]/;
+                var low_case = /[a-z]/;
+                var upp_case = /[A-Z]/;
+                
+                if(password.length >= 8){
+                   char_long.classList.add("valid")
+                }else{char_long.classList.remove("valid")}
+                
+                if(password.match(low_case)){
+                   low.classList.add("valid")      
+                }else{low.classList.remove("valid")}
+                
+                if(password.match(upp_case)){
+                   up.classList.add("valid")      
+                }else{up.classList.remove("valid")}
+                
+                if(password.match(numer)){
+                   num.classList.add("valid")      
+                }else{num.classList.remove("valid")}
+                
+            }
+        
+            $('#password').on('focus', function() {
+                $("#confirm-password").prop("disabled",false);
+            });
+        </script>
+    <!--Check password-->
+    <script>
+        
+        function passwordMatch(){
+                var fname = document.getElementById("fname").value
+                var lname = document.getElementById("lname").value
+                var email = document.getElementById("email").value
+                var password = document.getElementById("password").value
+                var conf_password = document.getElementById("confirm-password").value
+                var char_long = document.getElementById("char")
+                var low = document.getElementById("low")
+                var up = document.getElementById("upp")
+                var num = document.getElementById("num")
+                var message = document.getElementById("message")
+            
+                var error_animate = document.getElementById("confirm-password")
+                
+                if(conf_password != password || conf_password == null){
+                    message.innerHTML = "Password doesn't match! Try again.";
+                    error_animate.classList.add("animate");
+
+                    if(conf_password == ""){
+                       message.innerHTML = "";
+                    }
+                }else{message.innerHTML = '';error_animate.classList.remove("animate");}
+                
+                if(password==""){message.innerHTML=""}
+            
+                if(fname!="" && lname!="" && email!="" && password!="" && conf_password!="" && conf_password===password){
+                    char_long.classList.remove("valid")
+                    low.classList.remove("valid")
+                    up.classList.remove("valid")
+                    num.classList.remove("valid")
+                    message.classList.remove("valid")
+                    
+                }
+            }
+//If signup successful show success-popup
+//            $('#signup').click(function() {
+//                $('.success-popup').show();
+//                $('.pop-up-bg').show();
+//            });  
+        
+//            $('#signup').click(function() {
+//                if($('#confirm-password').val === $('#password').val){
+//                  $('form').trigger("reset");
+//                }
+//            });   
+        </script>
+      
+        
+  </body>
+</html>
+

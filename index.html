@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">  
+    <script src="https://kit.fontawesome.com/0bbf47f20a.js" crossorigin="anonymous"></script>
+    <title></title>
+    <style media="screen">
+        @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+        
+        @import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
+        /*
+        font-family: 'Abel', sans-serif;
+        */
+
+        @import url('https://fonts.googleapis.com/css?family=Fjalla+One&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Belleza&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Cabin&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Hammersmith+One&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Ruda&display=swap');
+
+        
+        body{
+            margin: 0;
+        }
+        header{
+            width: 100%;
+            height: 100px;
+            position: fixed;
+            background-color: #fff;
+            z-index: 1000;
+            overflow: visible;
+        }
+        nav{
+            line-height: 110px;
+            text-align: right;
+        }
+        nav a{
+            padding: 15px;
+            text-decoration: none;
+            font-family: 'Ruda', sans-serif;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            color: #444;
+            border-radius: 10px;
+            transition: .4s;
+            letter-spacing: .1em;
+        }
+        nav a.active{
+            background: rgb(25,132,199);
+            background: linear-gradient(90deg, rgba(25,132,199,1) 12%, rgba(0,104,162,0.528234649122807) 100%);
+            color: #fff;
+            text-shadow: 0px 5px 6px RGBA(33, 37, 43, .3);
+        }
+        nav a:hover{
+            text-decoration: none;
+            background: rgb(25,132,199);
+            background: linear-gradient(90deg, rgba(25,132,199,1) 12%, rgba(0,104,162,0.528234649122807) 100%);
+            color: #fff;
+            text-shadow: 0px 5px 6px RGBA(33, 37, 43, .3);
+        }
+        button{
+            cursor: pointer;
+            outline: none;
+            text-transform: uppercase;
+        }
+        #landing{
+            width: 100%;
+            height: 100vh;
+            background-image: url(./images/island.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        #landing .overlay{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.6);
+            z-index: 0;
+        }
+        nav{
+            position: relative;
+            right: 40px;
+        }
+        nav i{
+            font-size: 1.6em;
+            position: relative;
+            bottom: -3px;
+            cursor: pointer;
+            color: #444;
+            margin-left: 30px;
+        }
+        .logo{
+            position: absolute;
+            left: 40px;
+            height: 100%;
+            width: 200px;
+            background-image: url(images/crown.jpg);
+            background-position: left;
+            background-size: 130px;
+            background-repeat: no-repeat;
+            text-align: center;
+            line-height: 100px;
+        }
+        .center{
+            text-align: center;
+            position: relative;
+            top: 55%;
+            transform: translateY(-50%);
+        }
+        h1{   
+            color: #444;
+            font-family: 'Hammersmith One', sans-serif;
+            text-transform: uppercase;
+            font-size: 1em;
+        }
+        #landing h1, #landing p{color: #fff;}
+        #landing h1{font-size: 2em;}#landing p{font-size: 1.5em;}
+        p{
+            color: #444;
+            font-family: 'Belleza', sans-serif;
+            font-size: 1em;
+        }
+        .landing-button{
+            padding: 10px;
+            width: 130px;
+            border-radius: 7px;
+            font-size: 1em;
+            text-transform: uppercase;
+            font-family: 'Fjalla One', sans-serif;
+            background: linear-gradient(90deg, rgba(25,132,199,1) 0%, rgba(157,220,255,0.7738486842105263) 100%);
+            color: #fff;
+            border: none;
+            letter-spacing: .08em;
+            -webkit-box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.44);
+            -moz-box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.44);
+            box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.44);
+            transition: .3s;
+            text-shadow: 0px 5px 6px RGBA(33, 37, 43, .3);
+            outline: none;
+        }
+        #features .container:nth-child(2) i{
+            color: #fff;
+            font-size: 1.5em;
+            text-shadow: 0px 5px 6px RGBA(33, 37, 43, .3);
+        }
+        #features{
+            width: 100%;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        #offer{
+            width: 100%;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .column-center{
+            margin-left: 20px;
+            margin-right: 20px;
+/*            background-color: aqua;*/
+        }
+        .column-center h1{
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        .column-center p{
+            padding-left: 30px;
+            padding-right: 30px;
+/*            background-color: fuchsia;*/
+        }
+        .round-icon{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 65px;
+            background: linear-gradient(90deg, rgba(25,132,199,1) 0%, rgba(157,220,255,0.7738486842105263) 100%);
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .form-wrap{
+            position: relative;
+            top: -3.6vh;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            width: 60%;
+            margin-bottom: -40px;
+        }
+        form{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            background-color: RGBA(255,255,255,.95);
+            -webkit-box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.2);
+            -moz-box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.2);
+            box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.2);
+            padding: 20px;
+        }
+        #video-banner{
+            height: 200px;
+            width: 100%;
+            background-image: url(images/booking.jpg);
+            background-size: cover;
+            background-position: center;
+            line-height: 200px;
+        }
+        #video-banner .overlay{   
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(90deg, rgba(25,132,199,.8) 0%, rgba(157,220,255,0.7738486842105263) 100%);
+            text-align: center;
+        }
+        
+        #video-banner h1{
+            margin: 0;
+            line-height: 200px;
+            color: #fff;
+            font-size: 1.7em;
+            text-transform: none;
+        }
+        
+        .round-button i{
+            font-size: 1.1em;
+            color: #fff;
+            text-shadow: 0px 5px 6px RGBA(33, 37, 43, .3);
+            cursor: pointer;
+        }
+        header.scrolled {
+            width: 90%;
+            height: 100px;
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            border-radius: 10px;
+            background-color: RGBA(255,255,255,1);
+            -webkit-box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.2);
+            -moz-box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.2);
+            box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.2);
+            transition: opacity .4s;
+        }
+        header.scrolled .account-icon-box{
+            right: 10px;
+        }
+        .account-icon-box{
+            position: absolute;
+            top: 100px;
+            right: 0;
+            width: 300px;
+            transition: .3s;
+            opacity: 0;
+            visibility: hidden;
+            font-family: 'Ruda', sans-serif;
+            font-size: 1.1em;
+        }
+        .show{
+            opacity: 1;
+            visibility: visible;
+        }
+        .l-button-wrap{
+            padding: 0;
+        }
+        .l-button-wrap button{
+            width: 100%;
+            border: none;
+            padding:10px;
+            border-top: 1px solid #999;
+            border-bottom: 1px solid #999;
+            border-right: 1px solid #999;
+            background-color: #fff;
+            transition: .4s;
+        }
+        .r-button-wrap button{
+            width: 100%;
+            border: none;
+            padding:10px;
+            border-top: 1px solid #999;
+            border-bottom: 1px solid #999;
+            background-color: #fff;
+            transition: .4s;
+        }
+        .r-button-wrap{
+            padding: 0;
+        }
+        .button-wrap{
+            padding: 0;
+        }
+        .button-wrap button{
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #999;
+            padding:10px;
+            text-align: left;
+            background-color: #fff;
+            transition: .4s;
+        }
+        button i{
+            padding: 10px;
+        }
+        button:hover{
+            text-decoration: none;
+            background: linear-gradient(90deg, rgba(25,132,199,1) 0%, rgba(157,220,255,0.7738486842105263) 100%);
+            color: #fff;
+            text-shadow: 0px 5px 6px RGBA(33, 37, 43, .3);
+        }
+        #footer{
+            text-align: center;
+            padding: 30px;
+        }
+        #footer a{
+            padding: 10px;
+            color: inherit;
+            text-decoration: none;
+            font-family: 'Ruda', sans-serif;
+            text-transform: uppercase;
+        }
+        #footer i{
+            padding: 10px;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+        #footer h1, #footer p{
+            color: #888;
+            font-family: 'Abel', sans-serif;
+        }
+        * {box-sizing: border-box;}
+
+        #features input[type="text"], input[type=date], select{
+            width: 100%;
+            padding: 10px;
+        }
+        #features .input-with-icon input[type=text], .input-with-icon input[type=date], select{
+            padding-left: 40px;
+            border: none;
+            background-color: #eee;
+        }
+        #features select{
+            height: 45px;
+        }
+        #features .input-wrap{
+            padding: 0;
+            margin: 10px;
+        }
+        #features .input-with-icon i{
+            position: absolute;
+            left: 0;
+            top: 12px;
+            padding: 0px 15px;
+            text-shadow: none;
+            font-size: 1.2em;
+            color: #000;
+        }  
+        #features .input-with-icon i.fa-plane-departure{
+            font-size: 1em;
+            padding: 5px 10px;
+        }
+        #features .input-with-icon i.fa-plane-arrival{
+            font-size: 1em;
+            padding: 5px 10px;
+        }
+        #features .input-with-icon i.fa-users{
+            font-size:1.1em;
+            padding: 1px 12px;
+        }
+        #features .input-with-icon i.fa-briefcase{
+            font-size:1.1em;
+            padding: 1px 13px;
+        }
+        #features .search-button{
+            background: linear-gradient(90deg, rgba(25,132,199,1) 0%, rgba(157,220,255,0.7738486842105263) 100%);
+            padding: 10px;
+            width: 100%;
+            border-radius: 7px;
+            color: #fff;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-family: 'Fjalla One', sans-serif;
+            text-transform: uppercase;
+        }
+        h1.form-heading{
+            text-align: center;
+            margin: 0;
+            font-size: 1.2em;
+        }
+        #features .input-with-icon i.map-i{
+            position: absolute;
+            left: 0;
+        }
+        .support-icon{
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            z-index: 100;
+            opacity: .5;
+            transition: .3s;
+        }
+        .support-icon:hover{
+            opacity: 1;
+        }
+        
+        .login-form{
+            width: 700px;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            z-index: 1;
+            padding: 30px;
+            display: none;
+        }
+        .login-form form{
+            padding: 30px;
+            text-align: center
+        }
+        .login-form form i{
+            position: absolute;
+            right: 20px;
+            top: 25px;
+            font-size: 1.6em;
+            cursor: pointer;
+            transition: .3s;
+            color: darkgrey;
+        }
+        .login-form h1{
+            font-size: 1.2em;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .input-container {
+            width: 80%;
+            border: 5px solid transparent;
+            margin: 0 auto;
+        }
+        .login-form input[type="text"],[type="password"]{
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .login-form input[type="button"]{
+            width: 100%;
+            border: none;
+            background: linear-gradient(90deg, rgba(25,132,199,1) 0%, rgba(157,220,255,0.7738486842105263) 100%);
+            padding: 10px;
+            border-radius: 7px;
+            color: #fff;
+            outline: none;
+            cursor: pointer;
+            font-family: 'Fjalla One', sans-serif;
+            text-transform: uppercase;
+        }
+        .login-form input[type="checkbox"]
+        {
+            vertical-align:text-top;
+        }
+        .login-form label{
+            margin-top: 10px;
+        }
+        .pop-up-bg{
+            position: fixed;
+            background: RGBA(0,0,0,.5);
+            width: 100%;
+            height: 100vh;
+            z-index: 1;
+            display: none;
+        }
+        
+        .register-wrap form{
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0px 16px 60px -13px rgba(0,0,0,0);
+            border-radius: 0;
+            background-color: transparent;
+            margin-top: -10px;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        .register-wrap i{
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 1.6em;
+            cursor: pointer;
+            transition: .3s;
+            color: darkgrey;
+            z-index: 9;
+        }
+        .register-container h1{
+            font-size: 1.2em;
+            text-align: center;
+            margin-bottom: 15px;
+            z-index: 1;
+        }
+        .register-wrap h1{
+            margin-bottom: 20px;
+        }
+        .register-wrap input[type="text"],[type="password"]{
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .register-wrap input[type="button"]{
+            width: 100%;
+            border: none;
+            background: linear-gradient(90deg, rgba(25,132,199,1) 0%, rgba(157,220,255,0.7738486842105263) 100%);
+            padding: 10px;
+            border-radius: 7px;
+            color: #fff;
+            outline: none;
+            cursor: pointer;
+            font-family: 'Fjalla One', sans-serif;
+            text-transform: uppercase;
+        }
+        .register-wrap input[type="checkbox"]
+        {
+            vertical-align:text-top;
+        }
+        .register-wrap label{
+            margin-top: 10px;
+        }
+        .register-container{
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            background-color: RGBA(255,255,255,.95);
+            z-index: 2;
+            border-radius: 20px;
+            -webkit-box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.2);
+            -moz-box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.2);
+            box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.2);
+            display: none;
+        }
+        .guidelines, .register-wrap{
+            padding: 30px;
+            width: 100%;
+        }
+        .guidelines ul{
+            margin: 0;
+        }
+        .guidelines ul li{
+            list-style: none;
+            font-size: 1.1em;
+        }
+        ul li.valid:before {
+            content: '✓ ';
+            font-style: normal;
+        }
+        .valid{
+            color: #11D335;
+        }
+        p#message{
+            color: #FC5B5D;
+        }
+        .center-inside{
+            position: relative;
+            top: 40%;
+            transform: translateY(-50%);
+        }
+        label::selection,label a::selection { background: transparent; }
+        .animate{
+            -webkit-animation: vibrate-1 0.3s linear 2 both;
+            animation: vibrate-1 0.3s linear 2 both;
+        }
+        @-webkit-keyframes vibrate-1 {
+          0% {
+            -webkit-transform: translate(0);
+                    transform: translate(0);
+          }
+          20% {
+            -webkit-transform: translate(-2px, 2px);
+                    transform: translate(-2px, 2px);
+          }
+          40% {
+            -webkit-transform: translate(-2px, -2px);
+                    transform: translate(-2px, -2px);
+          }
+          60% {
+            -webkit-transform: translate(2px, 2px);
+                    transform: translate(2px, 2px);
+          }
+          80% {
+            -webkit-transform: translate(2px, -2px);
+                    transform: translate(2px, -2px);
+          }
+          100% {
+            -webkit-transform: translate(0);
+                    transform: translate(0);
+          }
+        }
+        @keyframes vibrate-1 {
+              0% {
+                -webkit-transform: translate(0);
+                        transform: translate(0);
+              }
+              20% {
+                -webkit-transform: translate(-2px, 2px);
+                        transform: translate(-2px, 2px);
+              }
+              40% {
+                -webkit-transform: translate(-2px, -2px);
+                        transform: translate(-2px, -2px);
+              }
+              60% {
+                -webkit-transform: translate(2px, 2px);
+                        transform: translate(2px, 2px);
+              }
+              80% {
+                -webkit-transform: translate(2px, -2px);
+                        transform: translate(2px, -2px);
+              }
+              100% {
+                -webkit-transform: translate(0);
+                        transform: translate(0);
+              }
+        }
+        
+        .success-popup{
+            width: 500px;
+            height: 300px;
+            background-color: RGBA(255,255,255,.95);
+            border-radius: 20px;
+            padding: 30px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            z-index: 5;
+            -webkit-box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.2);
+            -moz-box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.2);
+            box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.2);
+            display: none;
+        }
+        .success-popup i{
+            position: absolute;
+            right: 20px;
+            top: 25px;
+            font-size: 1.6em;
+            cursor: pointer;
+            transition: .3s;
+            color: darkgrey;
+            z-index: 9;
+        }
+        .success-popup h1{
+            font-size: 1.2em;
+            text-align: center;
+            z-index: 1;
+            color: #11D335;
+            text-shadow: 0px 5px 6px RGBA(33, 37, 43, .1);
+        }
+        .success-popup p{
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.3em;
+        }
+        .success-popup img{
+            pointer-events: none; 
+            position: absolute;
+            left: 54%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+        #offer .column-center{
+            text-align: center;
+        }
+        #offer .column-center form{
+            height: auto;
+            text-align: left;
+            -webkit-box-shadow: 0px 16px 60px -13px rgba(0,0,0,0);
+            -moz-box-shadow: 0px 16px 60px -13px rgba(0,0,0,0);
+            box-shadow: 0px 16px 60px -13px rgba(0,0,0,0);
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        #offer form input[type=email]{
+            width: 300px;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        #offer form input[type=button]{
+            border: none;
+            background: linear-gradient(90deg, rgba(25,132,199,1) 0%, rgba(157,220,255,0.7738486842105263) 100%);
+            padding: 10px;
+            border-radius: 7px;
+            color: #fff;
+            outline: none;
+            cursor: pointer;
+            font-family: 'Fjalla One', sans-serif;
+            text-transform: uppercase;
+        }
+        #fail-err{display: none;}
+        #email-err{display: none;}
+        #pass-err{display: none;}
+        #account-btn{display: none;border-top: 1px solid #999;}
+        #purchases-btn{display: none;}
+        #signout-btn{display: none;padding: 0;}
+        #signout-btn button{
+            width: 100%;
+            border: none;
+            padding:10px;
+            border-top: none;
+            border-bottom: 1px solid #999;
+            border-right: none;
+            background-color: #fff;
+            transition: .4s;
+        }
+        #user-info{
+            display: none;
+            padding: 0;
+        }
+        #user-info button{
+            pointer-events: none;
+            border-top: 1px solid #999;
+            border-bottom: none;
+            width: 100%;
+            padding:10px;
+            border-right: none;
+            background-color: #fff;
+            transition: .4s;
+            text-align: center;
+            padding: 10px;
+        }
+        #user-info #user-email{
+            color: lightslategrey;
+            font-size: .7em;
+            text-transform: lowercase;
+        }
+    </style>
+  </head>
+  <body onload="availableFeatures()">
+    
+    <div class="success-popup" id="success-popup">
+        <h1>Registration successful!<i class="far fa-times-circle close" onclick="refreshPage()"></i></h1>  
+        <img src="images/tick.png" width="150px">
+        <p>Please login to book flights</p>
+    </div>  
+    <div class="pop-up-bg" id="bg-overlay"></div>
+    <div class="support-icon">
+<!--      <i class="fas fa-headset"></i>-->
+        <img src="images/support.png" width="100%;">
+    </div> 
+      
+    <div class="container register-container" id="register-box">
+        <div class="row">
+            <div class="col-md guidelines">
+                
+                <h1>Passwords are case-sensitive and must contain:</h1>
+                <div class="center-inside">
+                <ul>
+                    <li id="char">At least 8 characters</li>
+                    <li id="num">At least 1 number</li>
+                    <li id="low">At least 1 lowercase letter</li>
+                    <li id="upp">At least 1 uppercase letter</li>
+                    <p id="message"></p>
+                </ul>
+                </div>
+                
+            </div>
+            <div class="col-md register-wrap">
+                <h1>Register <span class="close"><i class="fas fa-times-circle"></i></span></h1>
+                <form id="register-form">
+                    <div class="input-container">
+                        <input type="text" placeholder="First Name" id="fname" tabindex="1" autofocus>
+                    </div>
+                    <div class="input-container" >
+                        <input type="text" placeholder="Last Name" id="lname" tabindex="2" >
+                    </div>
+                    <div class="input-container">
+                        <input type="text" placeholder="Email Address" id="email" onfocus="" tabindex="3" >
+                    </div>
+                    <div class="input-container">
+                        <input type="password" class="password" placeholder="Password" id="password"  tabindex="4" oninput="checkPassword()" >
+                    </div>
+                    <div class="input-container">
+                        <input type="password" placeholder="Confirm Password" id="confirm-password" tabindex="5" disabled>
+                    </div>
+                    <label><input type="checkbox"> I agree to the <a href="#">Terms and Conditions</a></label>
+                    <div class="input-container" >
+                        <input type="button" class="button" value="Sign Up" onclick="passwordMatch();" id="signup">
+                    </div>
+                    <br><a href="#" class="to-login">Have an Account? Log In</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="login-form" id="login-box">
+        
+        <form>
+
+            <h1>Sign In With Email<i class="far fa-times-circle close"></i></h1>
+
+            <div class="input-container">
+                <input type="text" placeholder="Email Address" id="login-email" onfocus="" tabindex="1" >
+                <p id="email-err" style="text-align:left;margin:0;padding-left: 10px;color: orangered;">Type an email here*</p>
+            </div>
+            <div class="input-container">
+                <input type="password" class="password" placeholder="Password" id="login-password"  tabindex="2">
+                <p id="pass-err" style="text-align:left;margin:0;padding-left: 10px;color: orangered;">Enter a correct password*</p>
+            </div>
+            <div class="input-container" >
+                <input type="button" class="button" value="Login" id="login">
+            </div>
+            <p id="fail-err" style="text-align:center;margin:0;color: orangered;">Login failed! Email or password is incorrect. Please try again.</p>
+            <label>Forgot Password?</label><br>
+            <br><a href="#" class="to-register">Don't have an account? Create new account</a>
+
+        </form>
+    </div>  
+      
+    <header>
+    <div class="logo"></div> 
+    <nav> 
+        <a href="#" class="active">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+        <i class="fas fa-user-circle"></i> 
+      </nav>
+    <div class="account-icon-box">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 l-button-wrap" id="signup-btn"><button>Sign Up</button></div>
+                    <div class="col-12 r-button-wrap" id="signin-btn"><button>Sign In</button></div>
+                </div>
+                <div class="row">
+                    <div class="col-12" id="user-info"><button>
+                        <span id="user-name">Logged in as Anup</span><br>
+                        <span id="user-email"></span>
+                        </button>
+                        
+                    </div>
+                    <div class="col-12 button-wrap" id="account-btn"><button><i class="far fa-user"></i> My Account</button></div>
+                    <div class="col-12 button-wrap" id="purchases-btn"><button><i class="fas fa-money-check-alt"></i> My Purchases</button></div>
+                    <div class="col-12" id="signout-btn" style="text-align: center"><button onclick="logoutUser();">Sign Out</button></div>
+                </div>
+            </div>
+        </div>
+    </header>
+      
+    <section id="landing">
+          <div class="overlay">
+            <div class="center">
+                <h1>Adventure Awaits!<br><strong>What are you waiting for?</strong></h1>
+                <p>Book your air ticket Fast &amp; Easy</p>
+                <a href="#flight-search"><button class="landing-button">Get Started</button></a>
+            </div> 
+          </div>
+      </section>
+      
+    <section id="features">
+      <div class="form-wrap">
+        <form id="flight-search">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 input-wrap">
+                        <div class="input-with-icon">
+                            <h1 class="form-heading">Search Flight</h1>
+                        </div>
+                    </div>
+                    <div class="col-md input-wrap">
+                        <div class="input-with-icon">
+                            <select id="from-select">
+                                <option value=""><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>From</option>
+                                <option value="Alabama"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Alabama</option>
+                                <option value="Alaska"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Alaska</option>
+                                <option value="Arizona"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Arizona</option>
+                                <option value="Arkansas"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Arkansas</option>
+                                <option value="California"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>California</option>
+                                <option value="Colorado"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Colorado</option>
+                                <option value="Connecticut"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Connecticut</option>
+                                <option value="Delaware"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Delaware</option>
+                                <option value="District Of Columbia"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>District Of Columbia</option>
+                                <option value="Florida"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Florida</option>
+                                <option value="Georgia"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Georgia</option>
+                                <option value="Hawaii"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Hawaii</option>
+                                <option value="Idaho"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Idaho</option>
+                                <option value="Illinois"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Illinois</option>
+                                <option value="Indiana"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Indiana</option>
+                                <option value="Iowa"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Iowa</option>
+                                <option value="Kansas"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Kansas</option>
+                                <option value="Kentucky"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Kentucky</option>
+                                <option value="Louisiana"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Louisiana</option>
+                                <option value="Maine"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Maine</option>
+                                <option value="Maryland"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Maryland</option>
+                                <option value="Massachusetts"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Massachusetts</option>
+                                <option value="Michigan"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Michigan</option>
+                                <option value="Minnesota"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Minnesota</option>
+                                <option value="Mississippi"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Mississippi</option>
+                                <option value="Missouri"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Missouri</option>
+                                <option value="Montana"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Montana</option>
+                                <option value="Nebraska"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Nebraska</option>
+                                <option value="Nevada"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Nevada</option>
+                                <option value="New Hampshire"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>New Hampshire</option>
+                                <option value="New Jersey"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>New Jersey</option>
+                                <option value="New Mexico"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>New Mexico</option>
+                                <option value="New York"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>New York</option>
+                                <option value="North Carolina"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>North Carolina</option>
+                                <option value="North Dakota"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>North Dakota</option>
+                                <option value="Ohio"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Ohio</option>
+                                <option value="Oklahoma"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Oklahoma</option>
+                                <option value="Oregon"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Oregon</option>
+                                <option value="Pennsylvania"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Pennsylvania</option>
+                                <option value="Rhode Island"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Rhode Island</option>
+                                <option value="South Carolina"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>South Carolina</option>
+                                <option value="South Dakota"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>South Dakota</option>
+                                <option value="Tennessee"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Tennessee</option>
+                                <option value="Texas"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Texas</option>
+                                <option value="Utah"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Utah</option>
+                                <option value="Vermont"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Vermont</option>
+                                <option value="Virginia"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Virginia</option>
+                                <option value="Washington"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Washington</option>
+                                <option value="West Virginia"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>West Virginia</option>
+                                <option value="Wisconsin"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Wisconsin</option>
+                                <option value="Wyoming"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Wyoming</option>
+                            </select>
+                            <i class="fas fa-map-marker-alt map-i"></i>
+                        </div>
+                    </div>
+                    <div class="col-md input-wrap">
+                        <div class="input-with-icon">
+                            <select id="to-select">
+                                <option value=""><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>To</option>
+                                <option value="Alabama"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Alabama</option>
+                                <option value="Alaska"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Alaska</option>
+                                <option value="Arizona"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Arizona</option>
+                                <option value="Arkansas"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Arkansas</option>
+                                <option value="California"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>California</option>
+                                <option value="Colorado"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Colorado</option>
+                                <option value="Connecticut"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Connecticut</option>
+                                <option value="Delaware"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Delaware</option>
+                                <option value="District Of Columbia"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>District Of Columbia</option>
+                                <option value="Florida"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Florida</option>
+                                <option value="Georgia"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Georgia</option>
+                                <option value="Hawaii"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Hawaii</option>
+                                <option value="Idaho"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Idaho</option>
+                                <option value="Illinois"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Illinois</option>
+                                <option value="Indiana"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Indiana</option>
+                                <option value="Iowa"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Iowa</option>
+                                <option value="Kansas"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Kansas</option>
+                                <option value="Kentucky"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Kentucky</option>
+                                <option value="Louisiana"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Louisiana</option>
+                                <option value="Maine"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Maine</option>
+                                <option value="Maryland"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Maryland</option>
+                                <option value="Massachusetts"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Massachusetts</option>
+                                <option value="Michigan"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Michigan</option>
+                                <option value="Minnesota"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Minnesota</option>
+                                <option value="Mississippi"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Mississippi</option>
+                                <option value="Missouri"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Missouri</option>
+                                <option value="Montana"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Montana</option>
+                                <option value="Nebraska"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Nebraska</option>
+                                <option value="Nevada"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Nevada</option>
+                                <option value="New Hampshire"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>New Hampshire</option>
+                                <option value="New Jersey"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>New Jersey</option>
+                                <option value="New Mexico"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>New Mexico</option>
+                                <option value="New York"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>New York</option>
+                                <option value="North Carolina"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>North Carolina</option>
+                                <option value="North Dakota"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>North Dakota</option>
+                                <option value="Ohio"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Ohio</option>
+                                <option value="Oklahoma"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Oklahoma</option>
+                                <option value="Oregon"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Oregon</option>
+                                <option value="Pennsylvania"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Pennsylvania</option>
+                                <option value="Rhode Island"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Rhode Island</option>
+                                <option value="South Carolina"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>South Carolina</option>
+                                <option value="South Dakota"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>South Dakota</option>
+                                <option value="Tennessee"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Tennessee</option>
+                                <option value="Texas"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Texas</option>
+                                <option value="Utah"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Utah</option>
+                                <option value="Vermont"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Vermont</option>
+                                <option value="Virginia"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Virginia</option>
+                                <option value="Washington"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Washington</option>
+                                <option value="West Virginia"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>West Virginia</option>
+                                <option value="Wisconsin"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Wisconsin</option>
+                                <option value="Wyoming"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Wyoming</option>
+                            </select>
+                            <i class="fas fa-map-marker-alt map-i"></i>
+                        </div>
+                    </div>
+                    <div class="col-md input-wrap">
+                        <div class="input-with-icon">
+                            <select id="passengers-select">
+                                <option value=""><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Passengers</option>
+                                <option value="1"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>1</option>
+                            </select>
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                    <div class="col-md input-wrap">
+                        <div class="input-with-icon">
+                            <select id="class-select">
+                                <option value=""><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Class</option>
+                                <option value="First Class"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>First Class</option>
+                                <option value="Business Class"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Business Class</option>
+                                <option value="Economy Class"><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</pre>Economy Class</option>
+                            </select>
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class="row">
+                    
+                    
+                    <div class="col-md input-wrap">
+                        <div class="input-with-icon">
+                            <input type="date" id="depart" placeholder="Departure" name="depart">
+                            <i class="fas fa-plane-departure"></i>
+                        </div>
+                    </div>
+<!--
+                    <div class="col-md input-wrap">
+                        <div class="input-with-icon">
+                            <input type="date" id="return" placeholder="Return" name="return">
+                            <i class="fas fa-plane-arrival"></i>
+                        </div>
+                    </div>
+-->
+                    <div class="col-md input-wrap">
+                        <div class="input-with-icon">
+                            <input class="search-button" id="search-flight" type="button" value="Search">
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </form>
+      </div> 
+      <div class="container">
+                    <div class="row col-wrap">
+                        <div class="col-md column-center">
+                            <div class="round-icon"><i class="fas fa-rocket"></i></div>
+                            <h1>Fast &amp; Easy Booking</h1>
+                            <p>
+                                There are many variations of the is a passages of Lorem Ipsum that available majority.
+                            </p>
+                        </div>
+                        <div class="col-md column-center">
+                            <div class="round-icon"><i class="fas fa-gift"></i></div>
+                            <h1>Get Special Offers</h1>
+                            <p>
+                                There are many variations of the is a passages of Lorem Ipsum that available majority.
+                            </p>
+                        </div>
+                        <div class="col-md column-center">
+                            <div class="round-icon"><i class="fas fa-headset"></i></div>
+                            <h1>24/7 Support</h1>
+                            <p>
+                                There are many variations of the is a passages of Lorem Ipsum that available majority.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    </section>
+      
+    <section id="offer">
+      <div class="container">
+                    <div class="row col-wrap">
+                        <div class="col-md column-center">
+                            <img src="images/art.png" width="50%" style="pointer-events: none;">
+                        </div>
+                        <div class="col-md column-center">
+                            <form>
+                                <h1 style="text-align: left; padding-left: 0;">Sign Up &amp; Receive 20% Off Your First Flight</h1>
+                                <input type="email" placeholder="Enter your Email"> <input type="button" value="Subscribe">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+    </section>
+      
+    <section id="video-banner">
+          <div class="overlay">
+            
+            <h1>
+                <span class="round-button"><i class="fas fa-play-circle"></i></span>
+                How to Book Your Tickets
+            </h1>
+          </div>
+      </section>
+      
+    <section id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <a href="#">Home</a>
+                    <a href="#">Booking</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Partners</a>
+                    <a href="#">Legal</a>
+                </div>
+                <br><br>
+                <div class="col-12">
+                    <p style="margin: 0;text-transform: uppercase; color: inherit;">Follow us:</p>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-skype"></i>
+                </div>
+                <br><br>
+                <div class="col-12">
+                    <p>Copyright &copy; 2019 | hakunamatata.com <br> Created by Anup &amp; Hugo</p>
+                </div>
+            </div>  
+        </div>
+      </section>
+      
+      
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="scripts/ticket.js"></script>
+    <script src="scripts/saveentry.js"></script>
+    <script src="scripts/login.js"></script>
+    <script src="scripts/logout.js"></script>
+    <script src="scripts/login-services.js"></script>
+      
+    <script>
+        const loginExist = localStorage.getItem('activeUser')
+        document.querySelector('#search-flight').addEventListener('click',function(e){
+            if(loginExist == null){
+                alert("Login to search for flights.")
+            } 
+        }) 
+    </script>  
+    <!--change input place holder onclick-->  
+    <script>
+        $('#depart, #return').on('focus click',  function(e){
+            $(this).attr("placeholder", "mm/dd/yyyy");
+        });    
+    </script>
+    <!--Change header style on scroll-->  
+    <script>
+        $(function () {
+          $(document).scroll(function () {
+            var $header = $("header");
+            $header.toggleClass('scrolled', $(this).scrollTop() > $header.height());
+          });
+        });
+    </script>
+    <!--Show/Hide account menu-->  
+    <script>
+        $('nav i').click(function() {
+            $('.account-icon-box').toggleClass("show");
+        });
+        
+        $('.account-icon-box button').click(function() {
+            $('.account-icon-box').toggleClass("show");
+        });
+        
+        $('.r-button-wrap').click(function() {
+            $('.login-form').show();
+            $('.pop-up-bg').show();
+        }); 
+        
+        $('.l-button-wrap').click(function() {
+            $('.register-container').show();
+            $('.pop-up-bg').show();
+        });
+        
+        $('.to-login').click(function() {
+            $('.login-form').show();
+            $('.register-container').hide();
+            $('.pop-up-bg').show();
+        });
+        
+        $('.to-register').click(function() {
+            $('.register-container').show();
+            $('.login-form').hide();
+            $('.pop-up-bg').show();
+        });
+        
+        $('.fa-times-circle').click(function() {
+            $('.login-form').hide();
+            $('.register-container').hide();
+            $('.pop-up-bg').hide();
+            $('form').trigger("reset");
+            $("#char").removeClass("valid");
+            $("#low").removeClass("valid");
+            $("#upp").removeClass("valid");
+            $("#num").removeClass("valid");
+            $("#message").removeClass("valid");
+            $('.success-popup').hide();
+        });
+        
+      </script>
+    <!--Password Validation-->
+    <script>
+            
+            function checkPassword() {
+                var password = document.getElementById("password").value;
+                var conf_password = document.getElementById("confirm-password").value;
+                
+                var char_long = document.getElementById("char");
+                var low = document.getElementById("low");
+                var up = document.getElementById("upp");
+                var num = document.getElementById("num");
+                var message = document.getElementById("message");
+
+                var numer = /[0-9]/;
+                var low_case = /[a-z]/;
+                var upp_case = /[A-Z]/;
+                
+                if(password.length >= 8){
+                   char_long.classList.add("valid")
+                }else{char_long.classList.remove("valid")}
+                
+                if(password.match(low_case)){
+                   low.classList.add("valid")      
+                }else{low.classList.remove("valid")}
+                
+                if(password.match(upp_case)){
+                   up.classList.add("valid")      
+                }else{up.classList.remove("valid")}
+                
+                if(password.match(numer)){
+                   num.classList.add("valid")      
+                }else{num.classList.remove("valid")}
+                
+            }
+        
+            $('#password').on('focus', function() {
+                $("#confirm-password").prop("disabled",false);
+            });
+        </script>
+    <!--Check password-->
+    <script>
+        
+        function passwordMatch(){
+                var fname = document.getElementById("fname").value
+                var lname = document.getElementById("lname").value
+                var email = document.getElementById("email").value
+                var password = document.getElementById("password").value
+                var conf_password = document.getElementById("confirm-password").value
+                var char_long = document.getElementById("char")
+                var low = document.getElementById("low")
+                var up = document.getElementById("upp")
+                var num = document.getElementById("num")
+                var message = document.getElementById("message")
+            
+                var error_animate = document.getElementById("confirm-password")
+                
+                if(conf_password != password || conf_password == null){
+                    message.innerHTML = "Password doesn't match! Try again.";
+                    error_animate.classList.add("animate");
+
+                    if(conf_password == ""){
+                       message.innerHTML = "";
+                    }
+                }else{message.innerHTML = '';error_animate.classList.remove("animate");}
+                
+                if(password==""){message.innerHTML=""}
+            
+                if(fname!="" && lname!="" && email!="" && password!="" && conf_password!="" && conf_password===password){
+                    char_long.classList.remove("valid")
+                    low.classList.remove("valid")
+                    up.classList.remove("valid")
+                    num.classList.remove("valid")
+                    message.classList.remove("valid")
+                    
+                }
+            }
+//If signup successful show success-popup
+//            $('#signup').click(function() {
+//                $('.success-popup').show();
+//                $('.pop-up-bg').show();
+//            });  
+        
+//            $('#signup').click(function() {
+//                if($('#confirm-password').val === $('#password').val){
+//                  $('form').trigger("reset");
+//                }
+//            });   
+        </script>
+      
+        <script>
+            function refreshPage(){
+                window.location.replace('index.html')
+            }
+      </script>
+  </body>
+</html>

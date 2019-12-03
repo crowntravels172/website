@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <script src="https://kit.fontawesome.com/0bbf47f20a.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Checkout</title>
+      <style>
+          @import url('https://fonts.googleapis.com/css?family=Libre+Barcode+39&display=swap');
+          @import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+          @import url('https://fonts.googleapis.com/css?family=Sulphur+Point&display=swap');
+
+          .center-screen{
+/*              background-color: antiquewhite;*/
+              width: 500px;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%,-50%);
+          }
+          .container-padding{padding: 20px;border-radius: }
+          .ticket-info-wrap{
+/*              background-color: antiquewhite;*/
+              padding: 20px;
+              background-color: #f1f1f1;
+              border-radius: 10px;
+          }
+          h1{
+              font-family: 'Sulphur Point', sans-serif;
+              text-transform: uppercase;
+          }
+          .payments-side{
+              padding: 10px;
+          }
+          .payments-side img{
+              position: absolute;
+              right: 20px;
+              top: 30px;
+          }
+          .payments-side button{
+              padding: 10px;
+              border: none;
+              border-radius: 10px;
+              font-weight: bold;
+              cursor: pointer;
+              outline: none;
+              width: 50%;
+              position: relative;
+              left: 50%;margin-top: 10px;
+              transform: translateX(-50%);
+              background-color: #2ED383;
+              color: #fff;
+          }
+          .total,.price{
+              color: #2ED383;
+          }
+          .item-wrap{
+              background-color: #f1f1f1;
+              margin: 3px;
+              border-radius: 10px;
+          }
+          .item-wrap .remove{
+              position: relative;
+              left: 50%;
+              transform: translateX(-50%);
+              margin-top: 10px;
+              cursor: pointer;
+          }
+          .center-col{
+              position: relative;
+              top: 50%;
+              transform: translateY(-50%);
+          }
+          .t1{
+              border-top-left-radius: 10px;
+              border-top-right-radius: 10px;
+              background-color: #fff;
+              padding: 5px;
+              margin: 0;
+          }
+          .t2,.t3,.t4,.t5{
+              background-color: #fefefe;
+              padding: 10px;
+              padding-left: 30px;
+              padding-right: 30px;
+              margin: 0;
+          }
+          .t3,.t4{
+              border-bottom: 1px solid #f6f6f6;
+          }
+          .left-align p{
+              position: relative;
+              top: 55%;
+              transform: translateY(-50%);
+          }
+          .center-align p{
+              position: relative;
+              top: 55%;
+              transform: translateY(-50%);
+              text-align: center;
+          }
+          .right-align p{
+              position: relative;
+              top: 55%;
+              transform: translateY(-50%);
+              text-align: right;
+          }
+          .ticket {
+            position: relative;
+            border: 2px dotted grey;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 1em 2em;
+        }
+        .ticket:before,
+        .ticket:after{
+            height:0px;
+            width:45px;
+            content: '';
+            position: absolute;
+            top: 1.8em;
+            top: calc(1.8em - 1px);
+            height: 1.2em;
+            width: 0.6em;
+            border: 2px solid #000;
+        }
+        .ticket:before {
+            left: -2px;
+            background-color: #f1f1f1;
+            border-radius: 0 1em 1em 0;
+            border-left-color: #f1f1f1;
+        }
+        .ticket:after {
+            right: -2px;
+            background-color: #f1f1f1;
+            border-radius: 1em 0 0 1em;
+            border-right-color: #f1f1f1;
+        }
+        .t2{
+            background: linear-gradient(90deg, rgba(25,132,199,1) 12%, rgba(0,104,162,0.528234649122807) 100%);
+            color: #fff;
+        }
+        .t6{
+            background-color: #fff;
+        }
+        .t6{
+            padding: 0px;
+            padding-left: 0px;
+            padding-right: 0px;
+            margin: 0;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+          }
+        .t6 p{
+            top: 65%;
+            transform: translateY(-50%);
+            font-family: 'Libre Barcode 39', cursive;
+            font-size:3em;
+            margin: 0;
+            color: 
+        }
+          .t2 i{
+              font-size: 1.5em;
+          }
+          button{
+              background-color: #2ED383;
+              border: none;
+              padding: 10px;
+              width: 200px;
+              color: #fff;
+              font-weight: bold;
+              border-radius: 10px;
+              position: relative;
+              left: 50%;
+              transform: translateX(-50%);
+              outline: none;
+              cursor: pointer;
+              -webkit-box-shadow: 0px 16px 60px -13px rgba(46,211,131,1);
+            -moz-box-shadow: 0px 16px 60px -13px rgba(46,211,131,1);
+            box-shadow: 0px 16px 60px -13px rgba(46,211,131,1);
+              margin-top: 20px;
+          }
+          p span{
+              font-family: 'Roboto Mono', monospace;
+              font-size: 1em;
+          }
+      </style>
+  </head>
+  <body>
+    
+    <div class="center-screen">
+        <div class="container container-padding">
+            <div class="row">
+                <div class="col-md ticket-info-wrap">
+                    <h1 style="text-align: center;">Checkout</h1>
+                    <div class="container">
+                        <div class="row t1">
+                            <div class="col-6 left-align"><img src="images/crown.jpg" width="100px"></div>
+                            <div class="col-6 right-align"><p><strong style="text-transform: uppercase">Boarding Pass</strong></p></div>
+                        </div>
+                        <div class="row t2">
+                            <div class="col-4 left-align"><p id="from-dest">From Dest</p></div>
+                            <div class="col-4 center-align"><p><i class="fas fa-plane"></i></p></div>
+                            <div class="col-4 right-align"><p id="to-dest">To Dest</p></div>
+                        </div>
+                        <div class="row t3">
+                            <div class="col-4 left-align">
+                                <p><strong>Boarding</strong><br> <span id="boarding-time">9:10AM</span></p>
+                            </div>
+                            <div class="col-4 center-align">
+                                <p><strong>Date</strong><br> <span id="flight-date">29/11/19</span></p>
+                            </div>
+                            <div class="col-4 right-align">
+                                <p><strong>Departing</strong><br> <span id="departing-time">9:40AM</span></p>
+                            </div>
+                        </div>
+                        <div class="row t4">
+                            <div class="col-12 left-align">
+                                <p><strong>Passenger</strong><br> <span id="passenger-name">Thapa, Anup</span></p>
+                            </div>
+                        </div>
+                        <div class="row t5">
+                            <div class="col-4 left-align">
+                                <p><strong>Flight</strong><br> <span>LT 4060</span></p>
+                            </div>
+                            <div class="col-4 center-align">
+                                <p><strong>Gate</strong><br> <span>A5</span></p>
+                            </div>
+                            <div class="col-4 right-align">
+                                <p><strong>Seat</strong><br> <span>B7</span></p>
+                            </div>
+                        </div>
+                        <div class="row t6 ticket">
+                            <div class="col-12 center-align">
+                                <p>Crown travel</p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <h1 style="text-align: center;color: #666;">Total : <span class="total">$725</span></h1>
+                </div>
+<!--
+                <div class="col-md payments-side">
+                    <div class="center-col">
+                        <div class="row">
+                            <div class="col-12 item-wrap">
+                                <img src="images/mastercard.png" width="50px">
+                                <h1>MasterCard</h1>
+                                <span>**** **** **** 8901</span>
+                            </div>
+                            <div class="col-12 item-wrap">
+                                <img src="images/visa.png" width="50px">
+                                <h1>Visa Card</h1>
+                                <span>**** **** **** 6783</span>
+                            </div>
+                        </div>
+                        <button>Pay</button>
+                    </div>
+                    
+                </div>
+-->
+            </div>
+        </div> 
+        <button>Book Now</button>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
