@@ -17,7 +17,7 @@ var login_box = document.getElementById("login-box")
 var overlay = document.getElementById("bg-overlay")
 var userLoggedIn = localStorage.getItem('activeUser')
 
-    document.querySelector('#search-flight').addEventListener('click',function(e){
+    document.querySelector('#').addEventListener('click',function(e){
         e.preventDefault();
         
         temp_ticket.push({

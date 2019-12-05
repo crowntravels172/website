@@ -4,10 +4,9 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">  
     <script src="https://kit.fontawesome.com/0bbf47f20a.js" crossorigin="anonymous"></script>
-    <title>Flight Search Result</title>
+    <title>Ticket Confirmation</title>
     <style media="screen">
         @import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
-        
         @import url('https://fonts.googleapis.com/css?family=Abel&display=swap');
         /*
         font-family: 'Abel', sans-serif;
@@ -17,9 +16,13 @@
         @import url('https://fonts.googleapis.com/css?family=Belleza&display=swap');
         @import url('https://fonts.googleapis.com/css?family=Cabin&display=swap');
         @import url('https://fonts.googleapis.com/css?family=Hammersmith+One&display=swap');
-        @import url('https://fonts.googleapis.com/css?family=Ruda&display=swap');   
-        @import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
-
+        @import url('https://fonts.googleapis.com/css?family=Ruda&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Libre+Barcode+39&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Sulphur+Point&display=swap');
+        
+        
+        
         body{
             margin: 0;
         }
@@ -64,20 +67,11 @@
             outline: none;
             text-transform: uppercase;
         }
-        #landing{
-            width: 100%;
-            height: 100vh;
-            background-image: url(./images/island.jpg);
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-        #landing .overlay{
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,.6);
-            z-index: 0;
+        .account-icon-box button:hover{
+            text-decoration: none;
+            background: linear-gradient(90deg, rgba(25,132,199,1) 0%, rgba(157,220,255,0.7738486842105263) 100%);
+            color: #fff;
+            text-shadow: 0px 5px 6px RGBA(33, 37, 43, .3);
         }
         nav{
             position: relative;
@@ -103,23 +97,65 @@
             text-align: center;
             line-height: 100px;
         }
-        .center{
-            text-align: center;
-            position: relative;
-            top: 55%;
-            transform: translateY(-50%);
-        }
+/*
         h1{   
             color: #444;
             font-family: 'Hammersmith One', sans-serif;
             text-transform: uppercase;
             font-size: 1em;
         }
-        .round-button i{
-            font-size: 1.1em;
-            color: #fff;
-            text-shadow: 0px 5px 6px RGBA(33, 37, 43, .3);
-            cursor: pointer;
+        #landing h1, #landing p{color: #fff;}
+        #landing h1{font-size: 2em;}#landing p{font-size: 1.5em;}
+        p{
+            color: #444;
+            font-family: 'Belleza', sans-serif;
+            font-size: 1em;
+        }
+*/
+        .column-center{
+            margin-left: 20px;
+            margin-right: 20px;
+/*            background-color: aqua;*/
+        }
+        .column-center h1{
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        .column-center p{
+            padding-left: 30px;
+            padding-right: 30px;
+/*            background-color: fuchsia;*/
+        }
+        .round-icon{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 65px;
+            background: linear-gradient(90deg, rgba(25,132,199,1) 0%, rgba(157,220,255,0.7738486842105263) 100%);
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .form-wrap{
+            position: relative;
+            top: -3.6vh;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            width: 60%;
+            margin-bottom: -40px;
+        }
+        form{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            background-color: RGBA(255,255,255,.95);
+            -webkit-box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.2);
+            -moz-box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.2);
+            box-shadow: 0px 16px 60px -13px rgba(0,0,0,0.2);
+            padding: 20px;
         }
         header.scrolled {
             width: 90%;
@@ -159,7 +195,7 @@
         }
         .l-button-wrap button{
             width: 100%;
-            border: none;
+
             padding:10px;
             border-top: 1px solid #999;
             border-bottom: 1px solid #999;
@@ -171,8 +207,8 @@
             width: 100%;
             border: none;
             padding:10px;
-            border-top: 1px solid #999;
-            border-bottom: 1px solid #999;
+            border-top: 1px solid #fff;
+            border-bottom: 1px solid #fff;
             background-color: #fff;
             transition: .4s;
         }
@@ -185,7 +221,9 @@
         .button-wrap button{
             width: 100%;
             border: none;
-            border-bottom: 1px solid #999;
+            border-left: 1px solid #dfdfdf;
+            border-bottom: 1px solid #dfdfdf;
+            border-right: 1px solid #dfdfdf;
             padding:10px;
             text-align: left;
             background-color: #fff;
@@ -194,57 +232,11 @@
         button i{
             padding: 10px;
         }
-        button:hover{
-            text-decoration: none;
-            background: linear-gradient(90deg, rgba(25,132,199,1) 0%, rgba(157,220,255,0.7738486842105263) 100%);
-            color: #fff;
-            text-shadow: 0px 5px 6px RGBA(33, 37, 43, .3);
-        }
-        #fail-err{display: none;}
-        #email-err{display: none;}
-        #pass-err{display: none;}
-        #account-btn{display: none;border-top: 1px solid #999;}
-        #purchases-btn{display: none;}
-        #signout-btn{display: none;padding: 0;}
-        #signout-btn{display: none;padding: 0;}
-        #signout-btn button{
-            width: 100%;
-            border: none;
-            padding:10px;
-            border-top: none;
-            border-bottom: 1px solid #999;
-            border-right: none;
-            background-color: #fff;
-            transition: .4s;
-        }
-        #user-info{
-            display: none;
-            padding: 0;
-        }
-        #user-info button{
-            pointer-events: none;
-            border-top: 1px solid #999;
-            border-bottom: none;
-            width: 100%;
-            padding:10px;
-            border-right: none;
-            background-color: #fff;
-            transition: .4s;
-            text-align: center;
-            padding: 10px;
-        }
-        #user-info #user-email{
-            color: lightslategrey;
-            font-size: .7em;
-            text-transform: lowercase;
-        }
+        
         #footer{
-/*            position: absolute;*/
-            width: 100%;
-            bottom: 0;
+            margin-top: 70px;
             text-align: center;
             padding: 30px;
-/*            background: RGBA(255,255,255,.8);*/
         }
         #footer a{
             padding: 10px;
@@ -264,6 +256,12 @@
         }
         * {box-sizing: border-box;}
 
+      
+        h1.form-heading{
+            text-align: center;
+            margin: 0;
+            font-size: 1.2em;
+        }
         .support-icon{
             position: fixed;
             bottom: 20px;
@@ -279,18 +277,15 @@
             opacity: 1;
         }
         
-                
         .login-form{
             width: 700px;
             position: fixed;
             left: 50%;
             top: 50%;
             transform: translate(-50%,-50%);
-            z-index: 3;
+            z-index: 1;
             padding: 30px;
             display: none;
-            background-color: #fff;
-            border-radius: 20px;
         }
         .login-form form{
             padding: 30px;
@@ -351,7 +346,6 @@
         }
         
         .register-wrap form{
-            z-index: 10;
             padding: 30px;
             text-align: center;
             box-shadow: 0px 16px 60px -13px rgba(0,0,0,0);
@@ -550,187 +544,210 @@
             top: 50%;
             transform: translateX(-50%) translateY(-50%);
         }
- 
-        #page-content{
+        
+        #fail-err{display: none;}
+        #email-err{display: none;}
+        #pass-err{display: none;}
+        #account-btn{display: none;border-top: 1px solid #999;}
+        #purchases-btn{display: none;}
+        #signout-btn{display: none;padding: 0;}
+        #signout-btn button{
             width: 100%;
-            padding: 50px;
-            background: linear-gradient(90deg, rgba(25,132,199,1) 0%, rgba(157,220,255,0.7738486842105263) 100%);
-        }
-        .margin-fix{
-            margin-top: 100px;
-        }
-        .flight-result{
-            background: RGBA(255,255,255,.7);
-            padding-top: 30px;
-            padding-bottom: 30px;
-            -webkit-animation: scale-in-ver-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: scale-in-ver-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-        }
-        body{
-            box-sizing: border-box;
-        }
-        .result1,.result2,.result3,.result4{
-            padding: 30px;
+            border: none;
+            padding:10px;
+            border-top: none;
+            border-bottom: 1px solid #dfdfdf;
+            border-left: 1px solid #dfdfdf;
+            border-right: 1px solid #dfdfdf;
             background-color: #fff;
-            border-radius: 10px;
-            margin: 10px;
-            margin-left: 0px;
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
-            -webkit-box-shadow: 0px 16px 60px -13px rgba(0,0,0,.13);
-            -moz-box-shadow: 0px 16px 60px -13px rgba(0,0,0,.13);
-            box-shadow: 0px 16px 60px -13px rgba(0,0,0,.13);
+            transition: .4s;
         }
-        .result1{
-            -webkit-animation: fade-in-left 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) .5s both;
-	        animation: fade-in-left 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) .5s both;
-        }
-        .result2{
-            -webkit-animation: fade-in-left 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) .9s both;
-	        animation: fade-in-left 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) .9s noth; 
-        }
-        .result3{
-            -webkit-animation: fade-in-left 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) 1.3s both;
-	        animation: fade-in-left 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) 1.3s both;
-        }
-        .result4{
-            -webkit-animation: fade-in-left 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) 1.7s both;
-	        animation: fade-in-left 1s cubic-bezier(0.175, 0.885, 0.320, 1.275) 1.7s both;
-        }
-        #flight-name,#trip-summary{
-            font-family: 'Ruda', sans-serif;
-        }
-        #flight-name img{
-            position: absolute;
-            right: 0;
-            top: 8px;
-        }
-        #flight-num{
-            position: absolute;
-            right: 0;
-            font-family: 'Roboto Mono', monospace;
-            text-transform: uppercase;
-            color: grey;
-        }
-        .flight-col{
-            padding: 0px;
-        }
-        .trip-col{
-            text-align: center;
-            line-height: 50px;
-        }
-        .trip-col p{color: grey;}
-        .price-col{
-            text-align: center;
-            line-height: 50px;
-        }
-        .price-col p{color: #2ED383;font-family: 'Bebas Neue', cursive;font-size: 1.3em;}
-        .button-col{
-            text-align: center;
+        #user-info{
+            display: none;
             padding: 0;
         }
-        .button-col button{
+        #user-info button{
+            pointer-events: none;
+            border-top: 1px solid #999;
+            border-bottom: none;
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, rgba(25,132,199,1) 0%, rgba(157,220,255,0.7738486842105263) 100%);
+            padding:10px;
+            border-left: 1px solid #dfdfdf;
+            border-right: 1px solid #dfdfdf;
+            background-color: #fff;
+            transition: .4s;
+            text-align: center;
             padding: 10px;
-            border-radius: 7px;
-            color: #fff;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            font-family: 'Fjalla One', sans-serif;
-            text-transform: uppercase;
-            text-shadow: 0px 5px 6px RGBA(33, 37, 43, .3);
         }
-        .flight-result p{
-            margin: 0;
+        #user-info #user-email{
+            color: lightslategrey;
+            font-size: .7em;
+            text-transform: lowercase;
         }
-        @-webkit-keyframes scale-in-ver-center {
-          0% {
-            -webkit-transform: scaleY(0);
-                    transform: scaleY(0);
-            opacity: 1;
-          }
-          100% {
-            -webkit-transform: scaleY(1);
-                    transform: scaleY(1);
-            opacity: 1;
-          }
-        }
-        @keyframes scale-in-ver-center {
-          0% {
-            -webkit-transform: scaleY(0);
-                    transform: scaleY(0);
-            opacity: 1;
-          }
-          100% {
-            -webkit-transform: scaleY(1);
-                    transform: scaleY(1);
-            opacity: 1;
-          }
-        }
-
-        @-webkit-keyframes fade-in-left {
-          0% {
-            -webkit-transform: translateX(-80%);
-                    transform: translateX(-80%);
-            opacity: 0;
-          }
-          100% {
-            -webkit-transform: translateX(-50%);
-                    transform: translateX(-50%);
-            opacity: 1;
-          }
-        }
-        @keyframes fade-in-left {
-          0% {
-            -webkit-transform: translateX(-80%);
-                    transform: translateX(-80%);
-            opacity: 0;
-          }
-          100% {
-            -webkit-transform: translateX(-50%);
-                    transform: translateX(-50%);
-            opacity: 1;
-          }
-        }
-
-        .clouds{
-            position: absolute;
+        
+        #ticket-container{
             width: 100%;
-            left: 0;
-            height: 100%;
-            left: 0;
-            background-image: url(images/clouds.png);
-            background-size: 1000px;
-            background-repeat: repeat-x;
-            background-position: center;
-            -webkit-animation: blink-1 5s infinite both;
-	        animation: blink-1 8s infinite both;
+            height: 100vh;
         }
-        @-webkit-keyframes blink-1 {
-          0%,
-          50%,
-          100% {
-            opacity: 1;
-          }
-          25%,
-          75% {
-            opacity: .35;
-          }
+        .center-screen{
+        /*              background-color: antiquewhite;*/
+            width: 500px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            margin-top: 90px;
         }
-        @keyframes blink-1 {
-          0%,
-          50%,
-          100% {
-            opacity: 1;
-          }
-          25%,
-          75% {
-            opacity: .35;
-          }
+        .container-padding{padding: 20px;border-radius: }
+        .ticket-info-wrap{
+        /*              background-color: antiquewhite;*/
+          padding: 20px;
+          background-color: #f1f1f1;
+          border-radius: 10px;
+        }
+        h1{
+          font-family: 'Sulphur Point', sans-serif;
+          text-transform: uppercase;
+        }
+       
+        .total,.price{
+          color: #2ED383;
+        }
+        .item-wrap{
+          background-color: #f1f1f1;
+          margin: 3px;
+          border-radius: 10px;
+        }
+        .item-wrap .remove{
+          position: relative;
+          left: 50%;
+          transform: translateX(-50%);
+          margin-top: 10px;
+          cursor: pointer;
+        }
+        .center-col{
+          position: relative;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+        .t1{
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+          background-color: #fff;
+          padding: 5px;
+          margin: 0;
+        }
+        .t2,.t3,.t4,.t5{
+          background-color: #fefefe;
+          padding: 10px;
+          padding-left: 30px;
+          padding-right: 30px;
+          margin: 0;
+        }
+        .t3,.t4{
+          border-bottom: 1px solid #f6f6f6;
+        }
+        .left-align p{
+          position: relative;
+          top: 55%;
+          transform: translateY(-50%);
+        }
+        .center-align p{
+          position: relative;
+          top: 55%;
+          transform: translateY(-50%);
+          text-align: center;
+        }
+        .right-align p{
+          position: relative;
+          top: 55%;
+          transform: translateY(-50%);
+          text-align: right;
+        }
+        .ticket {
+        position: relative;
+        border: 2px dotted grey;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 1em 2em;
+        }
+        .ticket:before,
+        .ticket:after{
+        height:0px;
+        width:45px;
+        content: '';
+        position: absolute;
+        top: 1.8em;
+        top: calc(1.8em - 1px);
+        height: 1.2em;
+        width: 0.6em;
+        border: 2px solid #000;
+        }
+        .ticket:before {
+        left: -2px;
+        background-color: #f1f1f1;
+        border-radius: 0 1em 1em 0;
+        border-left-color: #f1f1f1;
+        }
+        .ticket:after {
+        right: -2px;
+        background-color: #f1f1f1;
+        border-radius: 1em 0 0 1em;
+        border-right-color: #f1f1f1;
+        }
+        .t2{
+        background: linear-gradient(90deg, rgba(25,132,199,1) 12%, rgba(0,104,162,0.528234649122807) 100%);
+        color: #fff;
+        }
+        .t6{
+        background-color: #fff;
+        }
+        .t6{
+        padding: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+        margin: 0;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        }
+        .t6 p{
+        top: 65%;
+        transform: translateY(-50%);
+        font-family: 'Libre Barcode 39', cursive;
+        font-size:3em;
+        margin: 0;
+        color: 
+        }
+        .t2 i{
+          font-size: 1.5em;
+        }
+        #ticket-container button{
+          background-color: #2ED383;
+          border: none;
+          padding: 10px;
+          width: 200px;
+          color: #fff;
+          font-weight: bold;
+          border-radius: 10px;
+          position: relative;
+          left: 50%;
+          transform: translateX(-50%);
+          outline: none;
+          cursor: pointer;
+          -webkit-box-shadow: 0px 16px 60px -13px rgba(46,211,131,1);
+        -moz-box-shadow: 0px 16px 60px -13px rgba(46,211,131,1);
+        box-shadow: 0px 16px 60px -13px rgba(46,211,131,1);
+          margin-top: 20px;
+        }
+        p span{
+          font-family: 'Roboto Mono', monospace;
+          font-size: 1em;
+        }
+        p.confirm-alert{
+            text-align: center;
+            font-family: 'Abel', sans-serif;
+            font-size: 1.3em;
+            display: none;
         }
         #login-msg{
             width: 100%;
@@ -750,33 +767,6 @@
             top: 50%;
             transform: translate(-50%,-50%);
         }
-        .flight-time{
-            position: absolute;
-            text-align: right;
-            left: 0;
-            bottom: 0;
-            background-color: #f1f1f1;
-            width: 100%;
-/*            padding-left: 30px;*/
-            padding-right: 30px;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            font-family: 'Ruda', sans-serif;
-        }
-        .facilities{
-            position: absolute;
-            left: 25px;
-        }
-        .facilities i{
-            margin: 5px;
-            color: grey;
-        }
-        .from-dest{
-            margin-right: 10px;
-        }
-        .to-dest{
-            margin-left: 10px;
-        }
     </style>
   </head>
   <body onload="availableFeatures();userLoginCheck();">
@@ -787,6 +777,9 @@
         <p>Please login to book flights</p>
     </div>  
     <div class="pop-up-bg" id="bg-overlay"></div>
+    <div id="login-msg">
+        <h1>You must be logged in to view this page</h1>  
+    </div>  
     <div class="support-icon">
 <!--      <i class="fas fa-headset"></i>-->
         <img src="images/support.png" width="100%;">
@@ -857,16 +850,7 @@
             <br><a href="#" class="to-register">Don't have an account? Create new account</a>
 
         </form>
-    </div>    
-      
-    <div id="login-msg">
-        <h1>You must be logged in to view this page</h1>  
-    </div>
-    <div class="support-icon">
-<!--      <i class="fas fa-headset"></i>-->
-        <img src="images/support.png" width="100%;">
-    </div> 
-      
+    </div>  
       
     <header>
     <div class="logo"></div> 
@@ -898,48 +882,64 @@
         </div>
     </header>
       
-    <section id="page-content">
-        <div class="margin-fix">
-            <div class="container flight-result">
-                <div class="clouds"></div>
-                <div class="row">
-                    <div class="col-10 result1">
-                        <div class="row"><div class="col-lg flight-col"><p id="flight-name">Delta Airlines <img src="images/delta.png" width="70px"><br>Flight : <span id="flight-num">Dal1001</span></p></div>
-                                <div class="col-lg trip-col"><p id="trip-summary"><span class="from-dest"></span> <i class="fas fa-long-arrow-alt-right"></i> <span class="to-dest"></span></p></div>
-                                <div class="col-lg-2 price-col"><p id="price">$332</p></div>
-                                <div class="col-lg button-col"><button onclick="ticketDetails('Delta','Dal1001',332,'10:00AM','12:45PM')">Select</button></div>
+    <section id="ticket-container">
+      <div class="center-screen">
+        <p class="confirm-alert" style="color: #2ED383;">🎊 Congratulations! Your flight has been confirmed 🎊</p>
+        <p class="confirm-alert">We're sending you this boarding pass via email. <br>Confirmation : #CT010</p>
+        <div class="container container-padding">
+            <div class="row">
+                <div class="col-md ticket-info-wrap">
+                    <h1 style="text-align: center;" class="checkout-heading">Checkout</h1>
+                    <div class="container">
+                        <div class="row t1">
+                            <div class="col-6 left-align"><img src="images/crown.jpg" width="100px"></div>
+                            <div class="col-6 right-align"><p><strong style="text-transform: uppercase">Boarding Pass</strong></p></div>
                         </div>
-                        <div class="flight-time"><span class="facilities"><i class="fas fa-wifi"></i> <i class="fas fa-plug"></i></span> Departure - <span id="departure-time">10 : 00 AM</span> | Arrival - <span id="arrival-time">12 : 45 PM</span></div>
-                    </div>
-                    <div class="col-10 result2">
-                        <div class="row">
-                                <div class="col-lg flight-col"><p id="flight-name">American Airlines <img src="images/american.png" width="100px" style="margin-top: -3px;"><br>Flight : <span id="flight-num">Aal1002</span></p></div>
-                                <div class="col-lg trip-col"><p id="trip-summary"><span class="from-dest"></span> <i class="fas fa-long-arrow-alt-right"></i> <span class="to-dest"></span></p></div>
-                                <div class="col-lg-2 price-col"><p id="price">$352</p></div>
-                                <div class="col-lg button-col"><button onclick="ticketDetails('American Airlines','Aal1002',352,'11:15AM','1:40PM')">Select</button></div>
+                        <div class="row t2">
+                            <div class="col-4 left-align"><p id="from-dest">From Dest</p></div>
+                            <div class="col-4 center-align"><p><i class="fas fa-plane"></i></p></div>
+                            <div class="col-4 right-align"><p id="to-dest">To Dest</p></div>
                         </div>
-                        <div class="flight-time"><span class="facilities"><i class="fas fa-wifi"></i> <i class="fas fa-plug"></i></span> Departure - <span id="departure-time">11 : 15 AM</span> | Arrival - <span id="arrival-time">1 : 40 PM</span></div>
-                    </div>
-                    <div class="col-10 result3">
-                        <div class="row"><div class="col-lg flight-col"><p id="flight-name">United Airlines <img src="images/united.png" width="90px"><br>Flight : <span id="flight-num">Ual100</span></p></div>
-                                <div class="col-lg trip-col"><p id="trip-summary"><span class="from-dest"></span> <i class="fas fa-long-arrow-alt-right"></i> <span class="to-dest"></span></p></div>
-                                <div class="col-lg-2 price-col"><p id="price">$335</p></div>
-                                <div class="col-lg button-col"><button onclick="ticketDetails('United Airlines','Ual100',335,'6:30AM','8:00PM')">Select</button></div>
+                        <div class="row t3">
+                            <div class="col-3 left-align">
+                                <p><strong>Departing</strong><br> <span id="departing-time"></span></p>
+                            </div>
+                            <div class="col-6 center-align">
+                                <p><strong>Date</strong><br> <span id="flight-date"></span></p>
+                            </div>
+                            <div class="col-3 right-align">
+                                <p><strong>Arrival</strong><br> <span id="arrival-time"></span></p>
+                            </div>
                         </div>
-                        <div class="flight-time"><span class="facilities"><i class="fas fa-wifi"></i> <i class="fas fa-plug"></i></span> Departure - <span id="departure-time">6 : 30 PM</span> | Arrival - <span id="arrival-time">8 : 00 PM</span></div>
-                    </div>
-                    <div class="col-10 result4">
-                        <div class="row">
-                                <div class="col-lg flight-col"><p id="flight-name">JetBlue<img src="images/jetBlue.png" width="50px" style="margin-top: -3px;"><br>Flight : <span id="flight-num">Jb1004</span></p></div>
-                                <div class="col-lg trip-col"><p id="trip-summary"><span class="from-dest"></span> <i class="fas fa-long-arrow-alt-right"></i> <span class="to-dest"></span></p></div>
-                                <div class="col-lg-2 price-col"><p id="price">$395</p></div>
-                                <div class="col-lg button-col"><button onclick="ticketDetails('JetBlue','Jb1004',395,'7:00AM','9:00AM')">Select</button></div>
+                        <div class="row t4">
+                            <div class="col-12 left-align">
+                                <p><strong>Passenger</strong><br> <span id="passenger-name"></span></p>
+                            </div>
                         </div>
-                        <div class="flight-time"><span class="facilities"><i class="fas fa-wifi"></i> <i class="fas fa-plug"></i></span> Departure - <span id="departure-time">7 : 00 AM</span> | Arrival - <span id="arrival-time">9 : 00 AM</span></div>
+                        <div class="row t5">
+                            <div class="col-4 left-align">
+                                <p><strong>Flight</strong><br> <span id="flight-num"></span></p>
+                            </div>
+                            <div class="col-4 center-align">
+                                <p><strong>Gate</strong><br> <span>A5</span></p>
+                            </div>
+                            <div class="col-4 right-align">
+                                <p><strong>Seat</strong><br> <span>B7</span></p>
+                            </div>
+                        </div>
+                        <div class="row t6 ticket">
+                            <div class="col-12 center-align">
+                                <p>Crown travel</p>
+                            </div>
+                        </div>
                     </div>
+                    <hr>
+                    <h1 style="text-align: center;color: #666;" class="total-heading">Total : <span class="total" id="price">$725</span></h1>
                 </div>
             </div>
-        </div>
+        </div> 
+        <button id="book-now">Book Now</button>
+    </div>
     </section>
       
     <section id="footer">
@@ -970,33 +970,56 @@
       
       
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="scripts/ticket.js"></script>
+    <script src="scripts/saveentry.js"></script>
     <script src="scripts/login.js"></script>
     <script src="scripts/logout.js"></script>
     <script src="scripts/login-services.js"></script>
-      
-    <script>
-//        var activeUser = JSON.parse(localStorage.getItem('activeUser'))
+    
+     <script>
+//         {"airlines":"Delta","flightNum":"Dal1001","price":332,"depTime":"10:00AM","arrTime":"12:45PM"}
         var from = activeUser[1].from
         var to = activeUser[1].to
+        var depDate = activeUser[1].departure
+        
+        var flightNum = activeUser[2].flightNum
+        var price = activeUser[2].price
+        var depTime = activeUser[2].depTime
+        var arrTime = activeUser[2].arrTime
+        
+        var fname
+        var lname
+        var registeredUser= JSON.parse(localStorage.getItem('user'))
+        for(var i=0; i<registeredUser.length; i++){
+            if(registeredUser[i].email === activeUser[0].email  ){
+                fname = registeredUser[i].firstName
+                lname = registeredUser[i].lastName
+            }
+        }
         
         $(document).ready(function(){
-            $('.from-dest').html(from)
-            $('.to-dest').html(to)
+            $('#from-dest').html(from)
+            $('#to-dest').html(to)
+            $('#passenger-name').html(lname + "," + fname),
+            $('#flight-date').html(depDate)
+            $('#departing-time').html(depTime)
+            $('#arrival-time').html(arrTime)
+            $('#flight-num').html(flightNum)
+            $('#price').html("$"+price+".00")
         })
-        function ticketDetails(theAirlines,theFlightNum,thePrice,theDept,theArv){
-            activeUser[2] = ({
-                airlines: theAirlines,
-                flightNum: theFlightNum,
-                price: thePrice,
-                depTime: theDept,
-                arrTime: theArv
-            })
-            localStorage.setItem('activeUser',JSON.stringify(activeUser))
-            window.location.replace("checkout.html")
-        }  
-    </script>  
-    <!-- Hides search result if user is not logged in-->  
+    </script>   
+      
     <script>
+          $('#book-now').click(function(e){
+              $('.checkout-heading').hide(200)
+              $('.total-heading').hide(200)
+              $('#book-now').hide(200)
+              $('hr').hide(500)
+              $('.confirm-alert').show(500)
+              
+          })
+    </script>  
+   <script>
         const loginExist = localStorage.getItem('activeUser')
         var msg = document.getElementById("login-msg")
         
@@ -1005,7 +1028,7 @@
                msg.style.display = "block"
             } 
         } 
-    </script>
+    </script>  
     <!--change input place holder onclick-->  
     <script>
         $('#depart, #return').on('focus click',  function(e){
@@ -1156,7 +1179,10 @@
 //            });   
         </script>
       
-        
+        <script>
+            function refreshPage(){
+                window.location.replace('index.html')
+            }
+      </script>
   </body>
 </html>
-
